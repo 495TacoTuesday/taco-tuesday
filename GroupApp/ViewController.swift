@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         print("it works")
     }
     
+    @IBAction func didtapButton(_ sender: AnyObject) {
+    print("test")
+    }
 
 }
 
