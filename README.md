@@ -1,6 +1,6 @@
-# Group Project - *TacoTracker*
+# Group Project - *DealTracker*
 
-**TacoTracker** is a Taco Tuesday Tracker application that allows users to report on deals at restaurants.
+**DealTracker** is a Taco Tuesday Tracker application that allows users to report on deals at restaurants.
 
 **Acknowledgements to Master Jesus**
 
