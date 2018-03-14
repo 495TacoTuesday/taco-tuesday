@@ -1,6 +1,6 @@
 # Group Project - *DealTracker*
 
-**DealTracker** is a Taco Tuesday Tracker application that allows users to report on deals at restaurants.
+**DealTracker** is a deal tracker application that allows users to report on deals at restaurants or local businesses.
 
 ## User Stories
 
@@ -15,10 +15,12 @@ The following **stretch** features are implemented:
 
 - [ ] Infinite scroll for restaurant results. 
 - [ ] Implement the restaurant detail page.
-
-The following **additional** features are implemented:
-
-- [ ] Text resizing and auto-layout restrictions for orientation handling
+  - [ ] Multiple images per deal
+- [ ] Slider for search distance
+- [ ] Pull from bottom of mp to see tableview of results
+- [ ] Choose location by dropping a pin on the map
+- [ ] Deals can tagged with certain keywords
+- [ ] Notifications for new deals based on keywords or relevance
 
 ## Modal
 - Venue
