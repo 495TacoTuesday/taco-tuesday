@@ -2,18 +2,13 @@
 
 **DealTracker** is a Taco Tuesday Tracker application that allows users to report on deals at restaurants.
 
-**Acknowledgements to Master Jesus**
-
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [] User should be able to add a deal at a location
-- [] Each deal should have a name, image, description
-- [] User can search for deals in an area
-- [] User can click the locate button to send the map to their location
-- [] Implement a search in this area button on the top of the map
-
+- [ ] User should be able to add/manage/remove a deal at a location
+- [ ] Each deal should have a name, image, description
+- [ ] User can search for deals in an area
 
 The following **stretch** features are implemented:
 
@@ -30,12 +25,39 @@ Please list two areas of the assignment you'd like to **discuss further with you
 1.Making the size of text look good on all screens
 2.
 
+## Modal
+
+Location, venue, lat, lng, rating, description, photos
+
+## Considerations
+
+- What is your product pitch?
+  It is currently impossible to see local resturaunt deals all in one place. *Deal Tracker* is the solution to that problem
+
+- Who are the key stakeholders for this app?
+  Users of this app are anyone looking for a good deal. Additionally, they are resturaunts posting their deals on the app, or users adding resturaunt deals that they want to share with others. 
+
+- What are the core flows?
+  The user immediately sees current deals near them on the map, as well as in a detailed tableview, both of which they can tap to see the deal in more detail.
+
+- What will your final demo look like?
+  Our final demo will be a smooth, user friendly experience, catering to the casual user as well as those looking to promote their business online. 
+
+- What mobile features do you leverage?
+  Our application leverages maps, for locating resturaunts, deatailed views for descriptions, and ability to lookup directions to a location.
+
+- What are your technical concerns?
+Storing large amounts of data accessible by everyone using the application
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/SambaDialloB/Assignment3/blob/master/gif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+## Credits
+
+- [Foursquare API](https://developer.foursquare.com/docs)
 
 ## Notes
 
