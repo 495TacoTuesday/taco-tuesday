@@ -30,11 +30,17 @@ Please list two areas of the assignment you'd like to **discuss further with you
 1.Making the size of text look good on all screens
 2.
 
+## Database Schemas
+<img src='https://github.com/SambaDialloB/Assignment3/blob/master/location_db' title='Location Document' width='' alt='Location Database' />
+<img src='https://github.com/SambaDialloB/Assignment3/blob/master/deal_db' title='deal Document' width='' alt='deal Database' />
+
+
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/SambaDialloB/Assignment3/blob/master/gif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 
 ## Notes
