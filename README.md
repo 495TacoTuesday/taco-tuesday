@@ -45,8 +45,8 @@ The following **additional** features are implemented:
   - Storing large amounts of data accessible by everyone using the application
 
 ## Database Schemas
-<img src='https://github.com/SambaDialloB/Assignment3/blob/master/location_db.png' title='Location Document' width='' alt='Location Database' />
-<img src='https://github.com/SambaDialloB/Assignment3/blob/master/deal_db.png' title='deal Document' width='' alt='deal Database' />
+<img src='https://github.com/495TacoTuesday/taco-tuesday/blob/master/location_db.png' title='Location Document' width='' alt='Location Database' />
+<img src='https://github.com/495TacoTuesday/taco-tuesday/blob/master/deal_db.png' title='deal Document' width='' alt='deal Database' />
 
 
 
