@@ -6,33 +6,28 @@
 
 The following **required** functionality is completed:
 
+- [ ] Map view of restaurant deal results.
 - [ ] User should be able to add/manage/remove a deal at a location
 - [ ] Each deal should have a name, image, description
 - [ ] User can search for deals in an area
 
 The following **stretch** features are implemented:
 
-- [ ] Infinite scroll for restaurant results. (+3pt)
-- [ ] Implement map view of restaurant results. (+3pt)
-- [ ] Implement the restaurant detail page. (+2pt)
+- [ ] Infinite scroll for restaurant results. 
+- [ ] Implement the restaurant detail page.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
-
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1.Making the size of text look good on all screens
+- [ ] Text resizing and auto-layout restrictions for orientation handling
 
 ## Modal
-
-- Location: lat, lng
-- venue: name, rating, description, photos
+- Venue
+  - Detials: location, name, rating, description, photos
 
 ## Considerations
 
 - What is your product pitch?
-  -It is currently impossible to see local resturaunt deals all in one place. *Deal Tracker* is the solution to that problem
+  - It is currently impossible to see local resturaunt deals all in one place. *Deal Tracker* is the solution to that problem
 
 - Who are the key stakeholders for this app?
   - Users of this app are anyone looking for a good deal. Additionally, they are resturaunts posting their deals on the app, or users adding resturaunt deals that they want to share with others. 
