@@ -2,33 +2,47 @@
 
 **DealTracker** is a Taco Tuesday Tracker application that allows users to report on deals at restaurants.
 
-**Acknowledgements to Master Jesus**
-
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [] User should be able to add a deal at a location
-- [] Each deal should have a name, image, description
-- [] User can search for deals in an area
-- [] User can click the locate button to send the map to their location
-- [] Implement a search in this area button on the top of the map
-
+- [ ] Map view of restaurant deal results.
+- [ ] User should be able to add/manage/remove a deal at a location
+- [ ] Each deal should have a name, image, description
+- [ ] User can search for deals in an area
 
 The following **stretch** features are implemented:
 
-- [ ] Infinite scroll for restaurant results. (+3pt)
-- [ ] Implement map view of restaurant results. (+3pt)
-- [ ] Implement the restaurant detail page. (+2pt)
+- [ ] Infinite scroll for restaurant results. 
+- [ ] Implement the restaurant detail page.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [ ] Text resizing and auto-layout restrictions for orientation handling
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+## Modal
+- Venue
+  - Detials: location, name, rating, description, photos
 
-1.Making the size of text look good on all screens
-2.
+## Considerations
+
+- What is your product pitch?
+  - It is currently impossible to see local resturaunt deals all in one place. *Deal Tracker* is the solution to that problem
+
+- Who are the key stakeholders for this app?
+  - Users of this app are anyone looking for a good deal. Additionally, they are resturaunts posting their deals on the app, or users adding resturaunt deals that they want to share with others. 
+
+- What are the core flows?
+  - The user immediately sees current deals near them on the map, as well as in a detailed tableview, both of which they can tap to see the deal in more detail.
+
+- What will your final demo look like?
+  - Our final demo will be a smooth, user friendly experience, catering to the casual user as well as those looking to promote their business online. 
+
+- What mobile features do you leverage?
+  - Our application leverages maps, for locating resturaunts, deatailed views for descriptions, and ability to lookup directions to a location.
+
+- What are your technical concerns?
+  - Storing large amounts of data accessible by everyone using the application
 
 ## Database Schemas
 <img src='https://github.com/SambaDialloB/Assignment3/blob/master/location_db' title='Location Document' width='' alt='Location Database' />
@@ -40,16 +54,17 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-
+## Credits
+- [Foursquare API](https://developer.foursquare.com/docs)
 
 ## Notes
 
-Describe any challenges encountered while building the app.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright [2018] [Joe Antongiovanni, Honorio Vega, Samba Diallo]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -62,5 +77,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-
