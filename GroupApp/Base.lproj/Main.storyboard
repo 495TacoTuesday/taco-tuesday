@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="izw-XT-BlK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Deals-->
+        <scene sceneID="kMc-rn-r78">
+            <objects>
+                <viewController id="cLh-Qs-wm2" customClass="MainViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M07-2X-vT5"/>
+                        <viewControllerLayoutGuide type="bottom" id="xkI-Mr-Woq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qfQ-7a-DLy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Deals" id="Saq-No-f4t">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Oyi-sj-9Zd">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="QEb-wQ-FyG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="374-lz-IHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="202.40000000000001" y="785.75712143928047"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,37 +43,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Deal Tracker" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TdL-2l-lPA">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG3-rf-ydl">
+                                <frame key="frameInset" minX="127" minY="310" width="121" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qal-hj-cxf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jq6-Z5-o47">
+                                <frame key="frameInset" minX="127" minY="377" width="121" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="onSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XJk-PA-SzZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Deal Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfp-Wi-dP8">
+                                <frame key="frameInset" minX="16" minY="140" width="343" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROT-gq-DTh">
-                                <state key="normal" title="Click"/>
-                                <connections>
-                                    <action selector="didTapClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uBl-C1-4Y2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfo-kT-4qW">
-                                <frame key="frameInset" minX="253" minY="38" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didtapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6fU-2T-jpn"/>
-                                </connections>
-                            </button>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Dfo-kT-4qW" secondAttribute="trailing" constant="60" id="Euo-lF-mVb"/>
-                            <constraint firstItem="ROT-gq-DTh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="a2a-Yo-7uD"/>
-                            <constraint firstItem="TdL-2l-lPA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cB5-vP-w4E"/>
-                            <constraint firstItem="TdL-2l-lPA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jgb-ru-uaW"/>
-                            <constraint firstItem="ROT-gq-DTh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="8" id="qRE-cS-DoA"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Bgq-hx-3mF"/>
+                    <connections>
+                        <outlet property="loginButton" destination="bG3-rf-ydl" id="5Pz-Nq-HRE"/>
+                        <outlet property="loginLabel" destination="Hfp-Wi-dP8" id="4ZI-15-OQI"/>
+                        <outlet property="signupButton" destination="jq6-Z5-o47" id="Iht-Dr-kor"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="786"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="DdB-SQ-Ldu">
@@ -76,6 +111,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjX-5Y-nsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cE7-dq-Wxi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="izw-XT-BlK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jAw-8Y-ZH5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cLh-Qs-wm2" kind="relationship" relationship="rootViewController" id="Wd0-PM-prb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nsp-e9-hyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-736.79999999999995" y="785.75712143928047"/>
         </scene>
     </scenes>
 </document>

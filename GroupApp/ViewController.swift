@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,13 +22,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func didTapClick(_ sender: Any) {
-        print("it works")
-    }
-    
-    @IBAction func didtapButton(_ sender: AnyObject) {
-    print("test")
+
+    @IBAction func onLogin(_ sender: AnyObject) {
     }
 
+    @IBAction func onSignup(_ sender: AnyObject) {
+    }
+    
+    
 }
 

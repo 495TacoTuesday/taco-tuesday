@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C07E2059CDA70001F766 /* MainViewController.swift */; };
 		D894EAD020509D06003F887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EACF20509D06003F887D /* AppDelegate.swift */; };
 		D894EAD220509D06003F887D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAD120509D06003F887D /* ViewController.swift */; };
 		D894EAD520509D06003F887D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD320509D06003F887D /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894EACF20509D06003F887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				D894EACF20509D06003F887D /* AppDelegate.swift */,
 				D894EAD120509D06003F887D /* ViewController.swift */,
 				D894EAD320509D06003F887D /* Main.storyboard */,
+				D829C07E2059CDA70001F766 /* MainViewController.swift */,
 				D894EAD620509D06003F887D /* Assets.xcassets */,
 				D894EAD820509D06003F887D /* LaunchScreen.storyboard */,
 				D894EADB20509D06003F887D /* Info.plist */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */,
 				D894EAD220509D06003F887D /* ViewController.swift in Sources */,
 				D894EAD020509D06003F887D /* AppDelegate.swift in Sources */,
 			);
@@ -505,6 +509,7 @@
 				D894EAF620509D06003F887D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D894EAF720509D06003F887D /* Build configuration list for PBXNativeTarget "GroupAppTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				D894EAF920509D06003F887D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D894EAFA20509D06003F887D /* Build configuration list for PBXNativeTarget "GroupAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				D894EAFC20509D06003F887D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
