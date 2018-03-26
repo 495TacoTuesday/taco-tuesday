@@ -47,7 +47,6 @@
 		69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D59C1AAAF41497847267BB /* Pods-GroupApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
-		A2D1ACE32069A53B00DB51DD /* settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = settings.storyboard; path = "/Users/samba/Desktop/taco-tuesday/GroupApp/settings.storyboard"; sourceTree = "<absolute>"; };
 		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = GroupApp/MainViewController.swift; sourceTree = "<group>"; };
 		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,7 +163,6 @@
 		D894EACE20509D06003F887D /* GroupApp */ = {
 			isa = PBXGroup;
 			children = (
-				A2D1ACE32069A53B00DB51DD /* settings.storyboard */,
 				D894EAD320509D06003F887D /* Main.storyboard */,
 				D829C0BD20699DD90001F766 /* Views */,
 				D829C0BC20699DC90001F766 /* View Controllers */,
