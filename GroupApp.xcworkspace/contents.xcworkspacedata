@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GroupApp/SettingsStoryboard.storyboard">
+      location = "group:/Users/samba/Desktop/taco-tuesday/GroupApp/SettingsStoryboard.storyboard">
    </FileRef>
    <FileRef
       location = "group:GroupApp.xcodeproj">

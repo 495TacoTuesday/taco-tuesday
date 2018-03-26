@@ -10,6 +10,7 @@
 		044D7B8C5F936F7EB600440B /* Pods_GroupAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54EA9788EB7F40BF22199755 /* Pods_GroupAppUITests.framework */; };
 		491AEF23B6E1E52D8246BDD3 /* Pods_GroupApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */; };
 		A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */; };
+		A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */; };
 		D15C65ED12A8005A008075AC /* Pods_GroupAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */; };
 		D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C07E2059CDA70001F766 /* MainViewController.swift */; };
 		D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BE20699FA50001F766 /* HomeMapViewController.swift */; };
@@ -47,6 +48,7 @@
 		69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D59C1AAAF41497847267BB /* Pods-GroupApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = GroupApp/MainViewController.swift; sourceTree = "<group>"; };
 		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 		D829C0BD20699DD90001F766 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -485,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */,
 				D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */,
 				A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */,
 				D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */,

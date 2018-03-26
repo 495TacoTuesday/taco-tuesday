@@ -21,6 +21,17 @@ class PhotoAnnotation: NSObject, MKAnnotation {
 
 
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate {
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
+        let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
+        
+        self.navigationController?.popToViewController(self, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = locationCoordinate
+        annotation.title = "\(latitude), \(longitude)"
+        mapView.addAnnotation(annotation)
+    }
+    
     
     @IBOutlet weak var mapView: MKMapView!
     var vc: UIImagePickerController!
@@ -49,6 +60,12 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         
     }
+    
+    @IBAction func tappedCamera(_ sender: Any) {
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
