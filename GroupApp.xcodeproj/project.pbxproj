@@ -11,6 +11,7 @@
 		491AEF23B6E1E52D8246BDD3 /* Pods_GroupApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */; };
 		D15C65ED12A8005A008075AC /* Pods_GroupAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */; };
 		D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C07E2059CDA70001F766 /* MainViewController.swift */; };
+		D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BE20699FA50001F766 /* HomeMapViewController.swift */; };
 		D894EAD020509D06003F887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EACF20509D06003F887D /* AppDelegate.swift */; };
 		D894EAD220509D06003F887D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAD120509D06003F887D /* ViewController.swift */; };
 		D894EAD520509D06003F887D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD320509D06003F887D /* Main.storyboard */; };
@@ -44,10 +45,11 @@
 		62225307760006E90D1ADD00 /* Pods-GroupApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.release.xcconfig"; sourceTree = "<group>"; };
 		69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D59C1AAAF41497847267BB /* Pods-GroupApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.debug.xcconfig"; sourceTree = "<group>"; };
-		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = GroupApp/MainViewController.swift; sourceTree = "<group>"; };
+		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894EACF20509D06003F887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = GroupApp/ViewController.swift; sourceTree = "<group>"; };
 		D894EAD420509D06003F887D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D894EAD620509D06003F887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D894EAD920509D06003F887D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D829C0BC20699DC90001F766 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D829C07E2059CDA70001F766 /* MainViewController.swift */,
+				D894EAD120509D06003F887D /* ViewController.swift */,
+				D829C0BE20699FA50001F766 /* HomeMapViewController.swift */,
+			);
+			name = "View Controllers";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D829C0BD20699DD90001F766 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D894EAC320509D06003F887D = {
 			isa = PBXGroup;
 			children = (
@@ -139,10 +160,10 @@
 		D894EACE20509D06003F887D /* GroupApp */ = {
 			isa = PBXGroup;
 			children = (
-				D894EACF20509D06003F887D /* AppDelegate.swift */,
-				D894EAD120509D06003F887D /* ViewController.swift */,
 				D894EAD320509D06003F887D /* Main.storyboard */,
-				D829C07E2059CDA70001F766 /* MainViewController.swift */,
+				D829C0BD20699DD90001F766 /* Views */,
+				D829C0BC20699DC90001F766 /* View Controllers */,
+				D894EACF20509D06003F887D /* AppDelegate.swift */,
 				D894EAD620509D06003F887D /* Assets.xcassets */,
 				D894EAD820509D06003F887D /* LaunchScreen.storyboard */,
 				D894EADB20509D06003F887D /* Info.plist */,
@@ -461,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */,
 				D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */,
 				D894EAD220509D06003F887D /* ViewController.swift in Sources */,
 				D894EAD020509D06003F887D /* AppDelegate.swift in Sources */,
