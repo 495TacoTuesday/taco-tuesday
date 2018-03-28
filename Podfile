@@ -7,6 +7,8 @@ target 'GroupApp' do
 
   # Pods for GroupApp
 	pod 'AFNetworking'
+    pod 'Parse'
+    pod 'ParseUI'
 
   target 'GroupAppTests' do
     inherit! :search_paths

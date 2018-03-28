@@ -11,12 +11,13 @@
 		491AEF23B6E1E52D8246BDD3 /* Pods_GroupApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */; };
 		A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */; };
 		A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */; };
+		A2D1ACEC206C3BA200DB51DD /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D1ACEA206C3BA200DB51DD /* SettingsStoryboard.storyboard */; };
+		A2D1ACEF206C3BE000DB51DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D1ACED206C3BE000DB51DD /* Main.storyboard */; };
 		D15C65ED12A8005A008075AC /* Pods_GroupAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */; };
 		D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C07E2059CDA70001F766 /* MainViewController.swift */; };
 		D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BE20699FA50001F766 /* HomeMapViewController.swift */; };
 		D894EAD020509D06003F887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EACF20509D06003F887D /* AppDelegate.swift */; };
 		D894EAD220509D06003F887D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAD120509D06003F887D /* ViewController.swift */; };
-		D894EAD520509D06003F887D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD320509D06003F887D /* Main.storyboard */; };
 		D894EAD720509D06003F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD620509D06003F887D /* Assets.xcassets */; };
 		D894EADA20509D06003F887D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD820509D06003F887D /* LaunchScreen.storyboard */; };
 		D894EAE520509D06003F887D /* GroupAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAE420509D06003F887D /* GroupAppTests.swift */; };
@@ -49,12 +50,13 @@
 		69D59C1AAAF41497847267BB /* Pods-GroupApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		A2D1ACEB206C3BA200DB51DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		A2D1ACEE206C3BE000DB51DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = GroupApp/MainViewController.swift; sourceTree = "<group>"; };
 		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894EACF20509D06003F887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = GroupApp/ViewController.swift; sourceTree = "<group>"; };
-		D894EAD420509D06003F887D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D894EAD620509D06003F887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D894EAD920509D06003F887D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D894EADB20509D06003F887D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,7 +168,8 @@
 		D894EACE20509D06003F887D /* GroupApp */ = {
 			isa = PBXGroup;
 			children = (
-				D894EAD320509D06003F887D /* Main.storyboard */,
+				A2D1ACED206C3BE000DB51DD /* Main.storyboard */,
+				A2D1ACEA206C3BA200DB51DD /* SettingsStoryboard.storyboard */,
 				D829C0BD20699DD90001F766 /* Views */,
 				D829C0BC20699DC90001F766 /* View Controllers */,
 				D894EACF20509D06003F887D /* AppDelegate.swift */,
@@ -313,7 +316,8 @@
 			files = (
 				D894EADA20509D06003F887D /* LaunchScreen.storyboard in Resources */,
 				D894EAD720509D06003F887D /* Assets.xcassets in Resources */,
-				D894EAD520509D06003F887D /* Main.storyboard in Resources */,
+				A2D1ACEC206C3BA200DB51DD /* SettingsStoryboard.storyboard in Resources */,
+				A2D1ACEF206C3BE000DB51DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +379,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseUI/ParseUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -529,10 +539,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D894EAD320509D06003F887D /* Main.storyboard */ = {
+		A2D1ACEA206C3BA200DB51DD /* SettingsStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D894EAD420509D06003F887D /* Base */,
+				A2D1ACEB206C3BA200DB51DD /* Base */,
+			);
+			name = SettingsStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		A2D1ACED206C3BE000DB51DD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2D1ACEE206C3BE000DB51DD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
