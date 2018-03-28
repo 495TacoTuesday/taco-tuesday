@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onLogin(_ sender: AnyObject) {
+    @IBAction func onLogin(_ sender: Any) {
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print("User log in failed: \(error.localizedDescription)")
@@ -39,7 +39,9 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func onSignup(_ sender: AnyObject) {
+    @IBAction func onSignup(_ sender: Any) {
+       
+        //self.performSegue(withIdentifier: "loggedIn", sender: nil)
         let newUser = PFUser()
         
         newUser.username = usernameField.text
