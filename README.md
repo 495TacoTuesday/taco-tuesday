@@ -56,7 +56,7 @@ The following **stretch** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/eMSPwpT.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Credits
 - [Foursquare API](https://developer.foursquare.com/docs)
