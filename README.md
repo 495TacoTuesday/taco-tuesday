@@ -6,13 +6,14 @@
 
 The following **required** functionality is completed:
 
-- [ ] Map view of restaurant deal results.
+- [x] User sees a map view on app launch and can register and login
+- [ ] User can see restaurant deal results.
 - [ ] User should be able to add/manage/remove a deal at a location
-- [ ] Each deal should have a name, image, description
-- [ ] User can search for deals in an area
+  - [ ] Each deal should have a name, image, description
 
 The following **stretch** features are implemented:
 
+- [ ] User can search for deals in an area
 - [ ] Infinite scroll for restaurant results. 
 - [ ] Implement the restaurant detail page.
   - [ ] Multiple images per deal
