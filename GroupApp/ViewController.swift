@@ -17,8 +17,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    
+    let alertController = UIAlertController(title: "Invalid Login", message: "Incorrect username or password.", preferredStyle: .alert)
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let tryAgainAction = UIAlertAction(title: "ok", style: .default) { (action) in
+           
+        }
+        
+        alertController.addAction(tryAgainAction)
+        // add the OK action to the alert controller
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -31,6 +42,9 @@ class ViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print("User log in failed: \(error.localizedDescription)")
+                self.present(self.alertController, animated: true) {
+                    
+                }
             } else {
                 print("User logged in successfully")
                 // manually segue to logged in view
