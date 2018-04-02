@@ -20,7 +20,7 @@ class PhotoAnnotation: NSObject, MKAnnotation {
 }
 
 
-class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate {
+class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource{
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
         let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
         
@@ -32,13 +32,20 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         mapView.addAnnotation(annotation)
     }
     
+    @IBOutlet weak var dealsTable: UITableView!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
+    
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dealsTable.dataSource = self
 
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
@@ -59,6 +66,15 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         mapView.delegate = self
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = dealsTable.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath)
+        return cell
     }
     
     @IBAction func tappedCamera(_ sender: Any) {
