@@ -21,32 +21,18 @@ class PhotoAnnotation: NSObject, MKAnnotation {
 
 
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource{
-    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
-        let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
-        
-        self.navigationController?.popToViewController(self, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationCoordinate
-        annotation.title = "\(latitude), \(longitude)"
-        mapView.addAnnotation(annotation)
-    }
+    
     
     @IBOutlet weak var dealsTable: UITableView!
-    
-    
     @IBOutlet weak var mapView: MKMapView!
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
-    
-
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dealsTable.dataSource = self
-
+        
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
         mapView.setRegion(sfRegion, animated: false)
@@ -64,8 +50,17 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
         //setting delegate
         mapView.delegate = self
+    }
+    
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
+        let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
         
+        self.navigationController?.popToViewController(self, animated: true)
         
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = locationCoordinate
+        annotation.title = "\(latitude), \(longitude)"
+        mapView.addAnnotation(annotation)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,8 +77,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         self.present(vc, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController,
+                                     didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
@@ -112,13 +107,22 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         return annotationView
     }
-
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if(segue.identifier == "tagSegue"){
+            let destVC = segue.destination as! LocationsViewController
+            destVC.imageTaken = self.imageTaken
+            destVC.delegate = self
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    
+    
 }
-													
+
