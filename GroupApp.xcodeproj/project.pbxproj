@@ -16,6 +16,7 @@
 		D15C65ED12A8005A008075AC /* Pods_GroupAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */; };
 		D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C07E2059CDA70001F766 /* MainViewController.swift */; };
 		D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BE20699FA50001F766 /* HomeMapViewController.swift */; };
+		D829C0FF2072E26A0001F766 /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */; };
 		D894EAD020509D06003F887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EACF20509D06003F887D /* AppDelegate.swift */; };
 		D894EAD220509D06003F887D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAD120509D06003F887D /* ViewController.swift */; };
 		D894EAD720509D06003F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD620509D06003F887D /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		A2D1ACEE206C3BE000DB51DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = GroupApp/MainViewController.swift; sourceTree = "<group>"; };
 		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
+		D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894EACF20509D06003F887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = GroupApp/ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */,
 				D894EAD120509D06003F887D /* ViewController.swift */,
 				D829C0BE20699FA50001F766 /* HomeMapViewController.swift */,
+				D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			path = ..;
@@ -502,6 +505,7 @@
 				D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */,
 				A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */,
 				D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */,
+				D829C0FF2072E26A0001F766 /* DealDetailViewController.swift in Sources */,
 				D894EAD220509D06003F887D /* ViewController.swift in Sources */,
 				D894EAD020509D06003F887D /* AppDelegate.swift in Sources */,
 			);
