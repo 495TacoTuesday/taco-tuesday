@@ -55,7 +55,6 @@ class ViewController: UIViewController {
 
     @IBAction func onSignup(_ sender: Any) {
        
-        //self.performSegue(withIdentifier: "loggedIn", sender: nil)
         let newUser = PFUser()
         
         newUser.username = usernameField.text

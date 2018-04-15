@@ -58,6 +58,7 @@
 		D829C07E2059CDA70001F766 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = GroupApp/MainViewController.swift; sourceTree = "<group>"; };
 		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
+		D829C1002083DF160001F766 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894EACF20509D06003F887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = GroupApp/ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		119C5570C32C6AB540DD2BC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D829C1002083DF160001F766 /* CoreLocation.framework */,
 				1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */,
 				69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */,
 				54EA9788EB7F40BF22199755 /* Pods_GroupAppUITests.framework */,

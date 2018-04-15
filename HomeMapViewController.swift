@@ -6,6 +6,7 @@
 //  Copyright © 2018 Joe Antongiovanni. All rights reserved.
 //
 
+import Parse
 import UIKit
 import MapKit
 
@@ -27,15 +28,13 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     @IBOutlet weak var mapView: MKMapView!
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
-    
+    var deals: [Deal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dealsTable.dataSource = self
-        
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
-        mapView.setRegion(sfRegion, animated: false)
+        mapView.setRegion(sfRegion, animated: true)
         //set up camera
         vc = UIImagePickerController()
         vc.delegate = self
@@ -50,7 +49,15 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
         //setting delegate
         mapView.delegate = self
+        
+        dealsTable.dataSource = self
+        //fetchTable()
     }
+    
+//    func fetchTable(){
+//    PFObject.fetch(<#T##PFObject#>)
+//        
+//    }
     
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
         let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
@@ -69,6 +76,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dealsTable.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath)
+        
+        //cell.deal = deals[indexPath.row]
         return cell
     }
     
