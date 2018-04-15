@@ -18,6 +18,7 @@
 		D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C07E2059CDA70001F766 /* MainViewController.swift */; };
 		D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BE20699FA50001F766 /* HomeMapViewController.swift */; };
 		D829C0FF2072E26A0001F766 /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */; };
+		D829C1022083DF610001F766 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D829C1002083DF160001F766 /* CoreLocation.framework */; };
 		D894EAD020509D06003F887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EACF20509D06003F887D /* AppDelegate.swift */; };
 		D894EAD220509D06003F887D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAD120509D06003F887D /* ViewController.swift */; };
 		D894EAD720509D06003F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD620509D06003F887D /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D829C1022083DF610001F766 /* CoreLocation.framework in Frameworks */,
 				491AEF23B6E1E52D8246BDD3 /* Pods_GroupApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
