@@ -9,6 +9,7 @@
 import Parse
 import UIKit
 import MapKit
+import CoreLocation
 
 class PhotoAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
@@ -21,20 +22,42 @@ class PhotoAnnotation: NSObject, MKAnnotation {
 }
 
 
-class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource{
+class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate{
     
     
     @IBOutlet weak var dealsTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    
+    let manager = CLLocationManager()
+    
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
     var deals: [Deal] = []
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0]
+        
+        let userRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude), MKCoordinateSpanMake(0.1, 0.1))
+        mapView.setRegion(userRegion, animated: true)
+        //self.mapView.showsUserLocation = true
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
-        mapView.setRegion(sfRegion, animated: true)
+        //mapView.setRegion(sfRegion, animated: true)
+        
+        
+        
         //set up camera
         vc = UIImagePickerController()
         vc.delegate = self
