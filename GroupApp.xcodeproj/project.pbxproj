@@ -19,6 +19,7 @@
 		D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0BE20699FA50001F766 /* HomeMapViewController.swift */; };
 		D829C0FF2072E26A0001F766 /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */; };
 		D829C1022083DF610001F766 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D829C1002083DF160001F766 /* CoreLocation.framework */; };
+		D829C10420854E560001F766 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D829C10320854E560001F766 /* UserViewController.swift */; };
 		D894EAD020509D06003F887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EACF20509D06003F887D /* AppDelegate.swift */; };
 		D894EAD220509D06003F887D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D894EAD120509D06003F887D /* ViewController.swift */; };
 		D894EAD720509D06003F887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894EAD620509D06003F887D /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		D829C0BE20699FA50001F766 /* HomeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMapViewController.swift; sourceTree = "<group>"; };
 		D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
 		D829C1002083DF160001F766 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D829C10320854E560001F766 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D894EACC20509D06003F887D /* GroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D894EACF20509D06003F887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D894EAD120509D06003F887D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = GroupApp/ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				A2D1ACED206C3BE000DB51DD /* Main.storyboard */,
 				A2D1ACEA206C3BA200DB51DD /* SettingsStoryboard.storyboard */,
+				D829C10320854E560001F766 /* UserViewController.swift */,
 				D829C0BD20699DD90001F766 /* Views */,
 				D829C0BC20699DC90001F766 /* View Controllers */,
 				D894EACF20509D06003F887D /* AppDelegate.swift */,
@@ -517,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */,
+				D829C10420854E560001F766 /* UserViewController.swift in Sources */,
 				D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */,
 				A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */,
 				D829C07F2059CDA70001F766 /* MainViewController.swift in Sources */,
