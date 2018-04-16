@@ -13,6 +13,7 @@ class Deal: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
     @NSManaged var desc: String
     @NSManaged var businessName: String
+    @NSManaged var dealName: String
     @NSManaged var lat: NSNumber
     @NSManaged var lon: NSNumber
     
@@ -32,7 +33,7 @@ class Deal: PFObject, PFSubclassing {
      - parameter caption: Caption text input by the user
      - parameter completion: Block to be executed after save operation is complete
      */
-    class func postUserDeal(description: String?, withCaption caption: String?,latt : NSNumber, long : NSNumber,  withCompletion completion: PFBooleanResultBlock?) {
+    class func postUserDeal(dealName: String, buisnessName : String, description: String?, latt : NSNumber, long : NSNumber,  withCompletion completion: PFBooleanResultBlock?) {
         // use subclass approach
         let deal = Deal()
         
@@ -42,6 +43,8 @@ class Deal: PFObject, PFSubclassing {
         deal.desc = description!
         deal.lat = latt
         deal.lon = long
+        deal.businessName = buisnessName
+        deal.dealName = dealName
         
         // Save object (following function will save the object in Parse asynchronously)
         deal.saveInBackground(block: completion)
