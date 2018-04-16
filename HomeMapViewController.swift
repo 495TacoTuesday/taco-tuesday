@@ -15,7 +15,6 @@ class PhotoAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
     var photo: UIImage!
     
-    
     var title: String? {
         return "\(coordinate.latitude)"
     }
@@ -33,15 +32,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
     var deals: [Deal] = []
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation = locations[0]
-        
-        let userRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude), MKCoordinateSpanMake(0.1, 0.1))
-        mapView.setRegion(userRegion, animated: true)
-        //self.mapView.showsUserLocation = true
-    }
-    
+
     
     
     override func viewDidLoad() {
@@ -90,9 +81,23 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let annotation = MKPointAnnotation()
         annotation.coordinate = locationCoordinate
         annotation.title = "\(latitude), \(longitude)"
+        
+        
+        Deal.postUserDeal(dealName: "Test Name",buisnessName: "Test Taco Place", description: "Test Description" ,latt: latitude,long: longitude) {
+            (success, error) in
+            if success{
+                print("Deal posted")
+            }
+            else{
+                print(error?.localizedDescription as Any)
+            }
+        }
+        
+        
         mapView.addAnnotation(annotation)
+        
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -149,6 +154,16 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             destVC.delegate = self
         }
     }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0]
+        
+        let userRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude), MKCoordinateSpanMake(0.1, 0.1))
+        mapView.setRegion(userRegion, animated: true)
+        //self.mapView.showsUserLocation = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
