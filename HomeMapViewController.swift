@@ -33,7 +33,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
     var deals: [Deal] = []
-
+    //https://stackoverflow.com/questions/33927405/find-closest-longitude-and-latitude-in-array-from-user-location-ios-swift
     
     override func viewWillAppear(_ animated: Bool) {
         getDeals()
@@ -82,7 +82,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             if  deals != nil {
                 // do something with the data fetched
                 self.deals = deals as! [Deal]
-                
+                debugPrint(deals)
                 //reloads the table view once we have the data
                 self.dealsTable.reloadData()
                 //self.refreshControl.endRefreshing()
