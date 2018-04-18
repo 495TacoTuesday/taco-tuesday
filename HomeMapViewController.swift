@@ -21,6 +21,7 @@ class PhotoAnnotation: NSObject, MKAnnotation {
 }
 
 
+
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate{
     
     
@@ -34,7 +35,10 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var deals: [Deal] = []
 
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        getDeals()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +46,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
+        getDeals()
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
         //mapView.setRegion(sfRegion, animated: true)
@@ -66,6 +70,29 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         dealsTable.dataSource = self
         //fetchTable()
+    }
+    
+    func getDeals()
+    {
+        let query = Deal.query()
+        //    query?.limit = 20
+        query?.order(byDescending: "_created_at")
+        // fetch data asynchronously
+        query?.findObjectsInBackground(block: { (deals, error) in
+            if  deals != nil {
+                // do something with the data fetched
+                self.deals = deals as! [Deal]
+                
+                //reloads the table view once we have the data
+                self.dealsTable.reloadData()
+                //self.refreshControl.endRefreshing()
+                print("got stuff")
+            } else {
+                // handle error
+                print("error")
+                print(error?.localizedDescription as Any)
+            }
+        })
     }
     
 //    func fetchTable(){
