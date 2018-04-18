@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044D7B8C5F936F7EB600440B /* Pods_GroupAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54EA9788EB7F40BF22199755 /* Pods_GroupAppUITests.framework */; };
+		1BC1D5EC2087EB4500314E4B /* AddDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC1D5EB2087EB4500314E4B /* AddDealViewController.swift */; };
 		491AEF23B6E1E52D8246BDD3 /* Pods_GroupApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */; };
 		A28E2004207C2393006B36E4 /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E2003207C2393006B36E4 /* Deal.swift */; };
 		A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BC1D5EB2087EB4500314E4B /* AddDealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDealViewController.swift; sourceTree = "<group>"; };
 		1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4333AE58E48DAF2BF5AA454B /* Pods-GroupAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupAppUITests/Pods-GroupAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		54EA9788EB7F40BF22199755 /* Pods_GroupAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 				D894EAD120509D06003F887D /* ViewController.swift */,
 				D829C0BE20699FA50001F766 /* HomeMapViewController.swift */,
 				D829C0FE2072E26A0001F766 /* DealDetailViewController.swift */,
+				1BC1D5EB2087EB4500314E4B /* AddDealViewController.swift */,
 			);
 			name = "View Controllers";
 			path = ..;
@@ -519,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC1D5EC2087EB4500314E4B /* AddDealViewController.swift in Sources */,
 				A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */,
 				D829C10420854E560001F766 /* UserViewController.swift in Sources */,
 				D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */,
