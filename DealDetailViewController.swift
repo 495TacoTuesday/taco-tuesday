@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class DealDetailViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class DealDetailViewController: UIViewController {
     @IBOutlet weak var dealLabel: UILabel!
     @IBOutlet weak var dealAddress: UILabel!
     @IBOutlet weak var dealDistance: UILabel!
+    @IBOutlet weak var dealDescription: UILabel!
+    var deal : PFObject!
     
     //--ToDo Call and Directions
     // grab number from foursquare, pass location to maps
@@ -28,6 +31,11 @@ class DealDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.dealLabel.text = deal["dealName"] as? String
+        self.dealDescription.text = deal["desc"] as? String
+        self.dealAddress.text = deal["businessName"] as? String
+        
+        
         // Do any additional setup after loading the view.
     }
 

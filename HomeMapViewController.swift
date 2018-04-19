@@ -141,6 +141,31 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "tagSegue"){
+            let destVC = segue.destination as! LocationsViewController
+            destVC.imageTaken = self.imageTaken
+            destVC.delegate = self
+        }
+        
+        if(sender != nil) {
+            
+            let cell = sender as! UITableViewCell
+            if let indexPath = dealsTable.indexPath(for: cell) {
+                let deal = deals[indexPath.row]
+                let dealDetailViewController = segue.destination as! DealDetailViewController
+                dealDetailViewController.deal = deal
+                
+                //when we need to pass images use this
+                //let dealCell = sender as! DealCell
+                //dealDetailViewController.postImage = postCell.postImage.image!
+            }
+        }
+        
+        
+    }
+    
+    
     @IBAction func tappedCamera(_ sender: Any) {
         
         self.present(vc, animated: false, completion: nil)
@@ -176,16 +201,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         return annotationView
     }
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if(segue.identifier == "tagSegue"){
-            let destVC = segue.destination as! LocationsViewController
-            destVC.imageTaken = self.imageTaken
-            destVC.delegate = self
-        }
-    }
+
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
