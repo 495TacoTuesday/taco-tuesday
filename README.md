@@ -13,12 +13,11 @@ The following **required** functionality is completed:
 The following **stretch** features are implemented:
 
 - [ ] user can manage / delete thier posted deals
-- [ ] User can search for deals in an area
 - [x] Infinite scroll for restaurant results. 
 - [x] Implement the restaurant detail page.
 - [ ] Slider for search distance
 - [ ] Pull from bottom of map to see tableview of results
-- [ ] Choose location by dropping a pin on the map
+- [x] Choose location by search
 
 ## Modal
 - Venue
@@ -54,8 +53,10 @@ The following **stretch** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/eMSPwpT.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://i.imgur.com/cVuNoUo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/eMSPwpT.gif' title='Video Walkthrough' width='' alt='Video Walkthrough 1' />
+<img src='https://i.imgur.com/cVuNoUo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough 2' />
+<img src='https://i.imgur.com/0YN8K55.gif' title='Video Walkthrough' width='' alt='Video Walkthrough 3' />
+
 
 
 ## Credits
