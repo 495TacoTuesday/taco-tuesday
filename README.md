@@ -14,14 +14,11 @@ The following **stretch** features are implemented:
 
 - [ ] user can manage / delete thier posted deals
 - [ ] User can search for deals in an area
-- [ ] Infinite scroll for restaurant results. 
-- [ ] Implement the restaurant detail page.
-  - [ ] Multiple images per deal
+- [x] Infinite scroll for restaurant results. 
+- [x] Implement the restaurant detail page.
 - [ ] Slider for search distance
-- [ ] Pull from bottom of mp to see tableview of results
+- [ ] Pull from bottom of map to see tableview of results
 - [ ] Choose location by dropping a pin on the map
-- [ ] Deals can tagged with certain keywords
-- [ ] Notifications for new deals based on keywords or relevance
 
 ## Modal
 - Venue
