@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZnI-FQ-bdQ" id="fST-ce-FMZ">
-                                            <frame key="frameInset" width="414" height="69.666666666666671"/>
+                                            <frame key="frameInset" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhH-OD-lnY">
@@ -99,7 +99,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Deals" id="Saq-No-f4t">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Oyi-sj-9Zd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="yc6-hh-prA">
+                            <connections>
+                                <action selector="searchButton:" destination="cLh-Qs-wm2" id="X0q-A8-37A"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oyi-sj-9Zd">
                             <connections>
                                 <segue destination="SjP-Gw-t8U" kind="show" id="f49-AG-hDH"/>
                             </connections>
