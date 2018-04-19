@@ -7,12 +7,12 @@
 The following **required** functionality is completed:
 
 - [x] User sees a map view on app launch and can register and login
-- [ ] User can see restaurant deal results.
-- [ ] User should be able to add/manage/remove a deal at a location
-  - [ ] Each deal should have a name, image, description
+- [x] User can see restaurant deal results.
+- [x] User should be able to add a deal
 
 The following **stretch** features are implemented:
 
+- [ ] user can manage / delete thier posted deals
 - [ ] User can search for deals in an area
 - [ ] Infinite scroll for restaurant results. 
 - [ ] Implement the restaurant detail page.
@@ -58,6 +58,8 @@ The following **stretch** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/eMSPwpT.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/cVuNoUo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 ## Credits
 - [Foursquare API](https://developer.foursquare.com/docs)

@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class PhotoAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
     var photo: UIImage!
@@ -46,7 +47,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        getDeals()
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
         //mapView.setRegion(sfRegion, animated: true)
@@ -69,7 +69,9 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         mapView.delegate = self
         
         dealsTable.dataSource = self
-        //fetchTable()
+        //dealsTable.delegate = self
+        getDeals()
+
     }
     
     func getDeals()
@@ -95,10 +97,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         })
     }
     
-//    func fetchTable(){
-//    PFObject.fetch(<#T##PFObject#>)
-//        
-//    }
     
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
         let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
@@ -126,19 +124,26 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return deals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dealsTable.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath)
+        let cell = dealsTable.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath) as! DealCell
+        let deal = deals[indexPath.row]
+        let dealLabel = deal.dealName
+        let descLabel = deal.desc
+        let BusName = deal.businessName
         
-        //cell.deal = deals[indexPath.row]
+        cell.dealLabel.text = dealLabel
+        cell.descLabel.text = descLabel
+        cell.BusName.text = BusName
+        
         return cell
     }
     
     @IBAction func tappedCamera(_ sender: Any) {
         
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: false, completion: nil)
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController,
