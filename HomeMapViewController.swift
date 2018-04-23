@@ -12,15 +12,15 @@ import MapKit
 import CoreLocation
 
 
-class PhotoAnnotation: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
-    var photo: UIImage!
-    
-    var title: String? {
-        return "\(coordinate.latitude)"
-    }
-}
-
+//class PhotoAnnotation: NSObject, MKAnnotation {
+//    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
+//    var photo: UIImage!
+//
+//    var title: String? {
+//        return "\(coordinate.latitude)"
+//    }
+//}
+//
 
 
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
@@ -28,6 +28,13 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBOutlet weak var dealsTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    let manager = CLLocationManager()
+    var annoLoca : CLLocationCoordinate2D!
+    var vc: UIImagePickerController!
+    var imageTaken: UIImage!
+    var deals: [Deal] = []
+    //https://stackoverflow.com/questions/33927405/find-closest-longitude-and-latitude-in-array-from-user-location-ios-swift
+    
     @IBAction func searchButton(_ sender: Any) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
@@ -79,12 +86,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
     }
     
-    let manager = CLLocationManager()
-    
-    var vc: UIImagePickerController!
-    var imageTaken: UIImage!
-    var deals: [Deal] = []
-    //https://stackoverflow.com/questions/33927405/find-closest-longitude-and-latitude-in-array-from-user-location-ios-swift
     
     override func viewWillAppear(_ animated: Bool) {
         getDeals()
@@ -100,7 +101,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         manager.stopUpdatingLocation()
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
-        //mapView.setRegion(sfRegion, animated: true)
+        mapView.setRegion(sfRegion, animated: true)
         
         
         
@@ -135,7 +136,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             if  deals != nil {
                 // do something with the data fetched
                 self.deals = deals as! [Deal]
-                debugPrint(deals)
+                print(deals!)
                 //reloads the table view once we have the data
                 self.dealsTable.reloadData()
                 //self.refreshControl.endRefreshing()
@@ -153,11 +154,10 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
         
         self.navigationController?.popToViewController(self, animated: true)
-        
         let annotation = MKPointAnnotation()
         annotation.coordinate = locationCoordinate
         annotation.title = "\(latitude), \(longitude)"
-        
+        annoLoca = annotation.coordinate
         
         Deal.postUserDeal(dealName: "Test Name",buisnessName: "Test Taco Place", description: "Test Description" ,latt: latitude,long: longitude) {
             (success, error) in
@@ -238,19 +238,42 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseID = "myAnnotationView"
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
-        if (annotationView == nil) {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            annotationView!.canShowCallout = true
-            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+        if pinView == nil {
+            print("Pinview was nil")
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+            pinView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
         }
-        
-        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
+        let imageView = pinView?.leftCalloutAccessoryView as! UIImageView
         imageView.image = imageTaken
+        var button = UIButton(type: UIButtonType.detailDisclosure) as UIButton // button with info sign in it
         
-        return annotationView
+        pinView?.rightCalloutAccessoryView = button
+        
+        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let region = MKCoordinateRegionMake(annoLoca, span)
+        self.mapView.setRegion(region, animated: true)
+        
+        return pinView
+        
+        
+//        let reuseID = "myAnnotationView"
+//
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+//        if (annotationView == nil) {
+//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+//            annotationView!.canShowCallout = true
+//            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+//        }
+//
+//        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
+//        imageView.image = imageTaken
+//
+//        return annotationView
     }
 
     
