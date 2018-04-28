@@ -78,6 +78,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <connections>
                                                         <action selector="onTapEdit:" destination="ZnI-FQ-bdQ" eventType="touchUpInside" id="Xbl-7P-2d9"/>
+                                                        <segue destination="1Nk-Z1-TAp" kind="show" identifier="EditDeal" id="FoG-oZ-IYH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -259,6 +260,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWw-4z-zYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="983" y="795"/>
+        </scene>
+        <!--Edit Deal View Controller-->
+        <scene sceneID="Dj4-wD-QaX">
+            <objects>
+                <viewController storyboardIdentifier="EditDeal" id="1Nk-Z1-TAp" customClass="EditDealViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t4D-5c-2q2"/>
+                        <viewControllerLayoutGuide type="bottom" id="7u6-Xl-csp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qSN-ve-XnV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8z-Is-0Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="1061"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="WkL-Iz-bAP">

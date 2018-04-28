@@ -18,7 +18,11 @@ class DealCell: UITableViewCell {
     
     @IBAction func onTapEdit(_ sender: Any) {
         print("EDIT")
+        
+        
     }
+    
+    
     
     
     override func awakeFromNib() {

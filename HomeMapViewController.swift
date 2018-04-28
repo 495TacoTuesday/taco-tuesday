@@ -230,7 +230,14 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         cell.descLabel.text = descLabel
         cell.BusName.text = BusName
         
+        cell.editButton.tag = indexPath.row
+        cell.editButton.addTarget(self, action: #selector(HomeMapViewController.buttontapped(_:)), for: UIControlEvents.touchUpInside)
+        
         return cell
+    }
+    
+    func buttontapped(_ sender: UIButton){
+        self.performSegue(withIdentifier: "EditDeal", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -254,6 +261,25 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             }
         }
         
+        if(segue.identifier == "EditDeal") {
+           
+            if let destination = segue.destination as? EditDealViewController{
+                
+                if let button:UIButton = sender as! UIButton?{
+                    destination.valueViaSegue = button.tag
+                }
+            }
+            
+            
+//            let cell = sender as! UITableViewCell
+//            if let indexPath = dealsTable.indexPath(for: cell) {
+//                let deal = deals[indexPath.row]
+//                let dealEditViewController = segue.destination as! EditDealViewController
+//                dealEditViewController.deal = deal
+//
+//            }
+            
+        }
         
     }
     
