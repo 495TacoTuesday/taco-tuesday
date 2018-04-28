@@ -76,6 +76,9 @@
                                                     <rect key="frame" x="353" y="29" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="onTapEdit:" destination="ZnI-FQ-bdQ" eventType="touchUpInside" id="Xbl-7P-2d9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

@@ -16,6 +16,9 @@ class DealCell: UITableViewCell {
     @IBOutlet weak var dealImage: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     
+    @IBAction func onTapEdit(_ sender: Any) {
+        print("EDIT")
+    }
     
     
     override func awakeFromNib() {
