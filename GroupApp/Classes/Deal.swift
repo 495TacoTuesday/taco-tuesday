@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  Deal.swift
 //  GroupApp
 //
 //  Created by Samba Diallo on 4/9/18.

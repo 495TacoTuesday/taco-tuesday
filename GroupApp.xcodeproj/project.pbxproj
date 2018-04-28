@@ -10,6 +10,7 @@
 		044D7B8C5F936F7EB600440B /* Pods_GroupAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54EA9788EB7F40BF22199755 /* Pods_GroupAppUITests.framework */; };
 		1BC1D5EC2087EB4500314E4B /* AddDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC1D5EB2087EB4500314E4B /* AddDealViewController.swift */; };
 		491AEF23B6E1E52D8246BDD3 /* Pods_GroupApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E52C4C0A4B0F786BBA11DB8 /* Pods_GroupApp.framework */; };
+		A2774B5D20915AC500E72893 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2774B5C20915AC500E72893 /* Images.swift */; };
 		A28E2004207C2393006B36E4 /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E2003207C2393006B36E4 /* Deal.swift */; };
 		A2D1ACE22069A3B100DB51DD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */; };
 		A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		62225307760006E90D1ADD00 /* Pods-GroupApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.release.xcconfig"; sourceTree = "<group>"; };
 		69D2A366FC33C10D93566063 /* Pods_GroupAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D59C1AAAF41497847267BB /* Pods-GroupApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupApp/Pods-GroupApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A2774B5C20915AC500E72893 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		A28E2003207C2393006B36E4 /* Deal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		A2D1ACE12069A3B100DB51DD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		A2D1ACE52069AD7F00DB51DD /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				A28E2003207C2393006B36E4 /* Deal.swift */,
+				A2774B5C20915AC500E72893 /* Images.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BC1D5EC2087EB4500314E4B /* AddDealViewController.swift in Sources */,
+				A2774B5D20915AC500E72893 /* Images.swift in Sources */,
 				A2D1ACE62069AD7F00DB51DD /* LocationTableViewCell.swift in Sources */,
 				D829C10420854E560001F766 /* UserViewController.swift in Sources */,
 				D829C0BF20699FA50001F766 /* HomeMapViewController.swift in Sources */,

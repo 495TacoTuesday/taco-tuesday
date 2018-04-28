@@ -26,10 +26,13 @@ import CoreLocation
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
     
     
+    //@IBOutlet weak var nyanImage: UIImageView!
     @IBOutlet weak var dealsTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     let manager = CLLocationManager()
+    //@IBOutlet weak var addDealButton: UIButton!
     var annoLoca : CLLocationCoordinate2D!
+    //var pinEnabled : Bool!
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
     var deals: [Deal] = []
@@ -41,6 +44,21 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         present(searchController, animated: true, completion: nil)
     }
     
+//    @IBAction func enablePin(_ sender: Any) {
+//        if(pinEnabled == true){
+//            nyanImage.isHidden = false;
+//            pinEnabled = false;
+//            addDealButton.isHidden = false;
+//            addDealButton.isEnabled = true;
+//        }
+//        else{
+//            nyanImage.isHidden = true;
+//            pinEnabled = true;
+//            addDealButton.isHidden = true;
+//            addDealButton.isEnabled = false;
+//        }
+//
+//    }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //Ignoring user unteraction except typing
         UIApplication.shared.beginIgnoringInteractionEvents()
@@ -75,13 +93,16 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 let annotation = MKPointAnnotation()
                 annotation.title = searchBar.text
                 annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                self.mapView.addAnnotation(annotation)
-                
+                self.annoLoca = annotation.coordinate
                 //Zoom back in
                 let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
                 let span = MKCoordinateSpanMake(0.1, 0.1)
                 let region = MKCoordinateRegionMake(coordinate, span)
                 self.mapView.setRegion(region, animated: true)
+                
+                self.mapView.addAnnotation(annotation)
+                
+                
             }
         }
     }
@@ -93,7 +114,10 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        addDealButton.isHidden = true;
+//        addDealButton.isEnabled = false;
+//        pinEnabled = false;
+//        nyanImage.isHidden = true;
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
@@ -136,7 +160,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             if  deals != nil {
                 // do something with the data fetched
                 self.deals = deals as! [Deal]
-                print(deals!)
+               // print(deals!)
                 //reloads the table view once we have the data
                 self.dealsTable.reloadData()
                 //self.refreshControl.endRefreshing()
@@ -238,8 +262,18 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("viewForannotation")
+        if annotation is MKUserLocation {
+            //return nil
+            return nil
+        }
+        
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let region = MKCoordinateRegionMake(annotation.coordinate, span)
+        self.mapView.setRegion(region, animated: true)
         
         if pinView == nil {
             print("Pinview was nil")
@@ -247,16 +281,11 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             pinView!.canShowCallout = true
             pinView!.animatesDrop = true
             pinView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+            pinView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure) as UIButton // button with info sign in it
         }
-        let imageView = pinView?.leftCalloutAccessoryView as! UIImageView
-        imageView.image = imageTaken
-        var button = UIButton(type: UIButtonType.detailDisclosure) as UIButton // button with info sign in it
         
-        pinView?.rightCalloutAccessoryView = button
         
-        let span = MKCoordinateSpanMake(0.1, 0.1)
-        let region = MKCoordinateRegionMake(annoLoca, span)
-        self.mapView.setRegion(region, animated: true)
+        
         
         return pinView
         
