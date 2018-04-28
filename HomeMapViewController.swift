@@ -267,6 +267,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 
                 if let button:UIButton = sender as! UIButton?{
                     destination.valueViaSegue = button.tag
+                    let deal = deals[button.tag]
+                    destination.deal = deal
                 }
             }
             

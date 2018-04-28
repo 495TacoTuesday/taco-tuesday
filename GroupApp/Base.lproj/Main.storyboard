@@ -264,7 +264,7 @@
         <!--Edit Deal View Controller-->
         <scene sceneID="Dj4-wD-QaX">
             <objects>
-                <viewController storyboardIdentifier="EditDeal" id="1Nk-Z1-TAp" customClass="EditDealViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1Nk-Z1-TAp" customClass="EditDealViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t4D-5c-2q2"/>
                         <viewControllerLayoutGuide type="bottom" id="7u6-Xl-csp"/>

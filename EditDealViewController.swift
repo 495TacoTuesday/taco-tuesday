@@ -17,7 +17,7 @@ class EditDealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(valueViaSegue)
-        //print(deal["dealName"])
+        print(deal["dealName"])
         // Do any additional setup after loading the view.
     }
 
