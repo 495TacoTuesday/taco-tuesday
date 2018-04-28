@@ -14,6 +14,7 @@ class DealCell: UITableViewCell {
     @IBOutlet weak var BusName: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var dealImage: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     
     
     

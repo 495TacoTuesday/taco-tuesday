@@ -112,6 +112,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         getDeals()
         
     }
+    var currentUser = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        addDealButton.isHidden = true;
@@ -123,6 +125,10 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         manager.stopUpdatingLocation()
+        print(PFUser.current()?.objectId)
+        currentUser = (PFUser.current()?.objectId)!
+        
+
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
         mapView.setRegion(sfRegion, animated: true)
@@ -160,11 +166,11 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             if  deals != nil {
                 // do something with the data fetched
                 self.deals = deals as! [Deal]
-               // print(deals!)
+                //print(deals!)
                 //reloads the table view once we have the data
                 self.dealsTable.reloadData()
                 //self.refreshControl.endRefreshing()
-                print("got stuff")
+                print("Retrieved Deals")
             } else {
                 // handle error
                 print("error")
@@ -208,7 +214,18 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let dealLabel = deal.dealName
         let descLabel = deal.desc
         let BusName = deal.businessName
-        
+        let auth = deal.author.objectId
+        if(auth == self.currentUser){
+            print("true")
+            DispatchQueue.main.async {
+            cell.editButton.isHidden = false
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+            cell.editButton.isHidden = true
+            }}
+        print(dealLabel)
         cell.dealLabel.text = dealLabel
         cell.descLabel.text = descLabel
         cell.BusName.text = BusName

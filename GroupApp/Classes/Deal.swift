@@ -11,6 +11,7 @@ import Parse
 
 class Deal: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
+    @NSManaged var _p_author: String
     @NSManaged var desc: String
     @NSManaged var businessName: String
     @NSManaged var dealName: String
