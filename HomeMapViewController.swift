@@ -6,6 +6,11 @@
 //  Copyright © 2018 Joe Antongiovanni. All rights reserved.
 //
 
+//TODO: Refresh Control
+//TODO: Persist User, logout, bypass login
+//TODO: Edit deal
+
+
 import Parse
 import UIKit
 import MapKit
@@ -127,7 +132,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         manager.stopUpdatingLocation()
         print(PFUser.current()?.objectId)
         currentUser = (PFUser.current()?.objectId)!
-        
 
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
@@ -271,23 +275,12 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                     destination.deal = deal
                 }
             }
-            
-            
-//            let cell = sender as! UITableViewCell
-//            if let indexPath = dealsTable.indexPath(for: cell) {
-//                let deal = deals[indexPath.row]
-//                let dealEditViewController = segue.destination as! EditDealViewController
-//                dealEditViewController.deal = deal
-//
-//            }
-            
         }
         
     }
     
     
     @IBAction func tappedCamera(_ sender: Any) {
-        
         self.present(vc, animated: false, completion: nil)
     }
     

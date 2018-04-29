@@ -11,13 +11,22 @@ import Parse
 
 class EditDealViewController: UIViewController {
 
+    @IBOutlet weak var dealName: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
     var deal : PFObject!
     var valueViaSegue: Int
         = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(valueViaSegue)
-        print(deal["dealName"])
+        let name = deal["dealName"]
+
+        //print(valueViaSegue)
+        //print(deal["dealName"])
+        
+        print(deal)
+        dealName.text = name as? String
         // Do any additional setup after loading the view.
     }
 
@@ -26,7 +35,11 @@ class EditDealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func saveDeal(_ sender: Any) {
+        deal["dealName"] = dealName.text
+        deal.saveInBackground()
+    }
+    
     /*
     // MARK: - Navigation
 
