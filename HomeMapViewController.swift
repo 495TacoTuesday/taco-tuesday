@@ -17,22 +17,14 @@ import MapKit
 import CoreLocation
 
 
-//class PhotoAnnotation: NSObject, MKAnnotation {
-//    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0)
-//    var photo: UIImage!
-//
-//    var title: String? {
-//        return "\(coordinate.latitude)"
-//    }
-//}
-//
-
 
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
     
     
     //********************************************************************************************
     //Variables
+    var currentUser = ""
+
     let manager = CLLocationManager()
     //@IBOutlet weak var addDealButton: UIButton!
     var annoLoca : CLLocationCoordinate2D!
@@ -54,29 +46,13 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
    
     
-//    @IBAction func enablePin(_ sender: Any) {
-//        if(pinEnabled == true){
-//            nyanImage.isHidden = false;
-//            pinEnabled = false;
-//            addDealButton.isHidden = false;
-//            addDealButton.isEnabled = true;
-//        }
-//        else{
-//            nyanImage.isHidden = true;
-//            pinEnabled = true;
-//            addDealButton.isHidden = true;
-//            addDealButton.isEnabled = false;
-//        }
-//
-//    }
+
     
     
     override func viewWillAppear(_ animated: Bool) {
         getDeals()
         getImages()
-        
     }
-    var currentUser = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +88,9 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 self.mapView.setRegion(sfRegion, animated: true)
             }
         })
+        
+        
+        
 
         
         //UIRefreshControl
@@ -174,7 +153,48 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
     }
-    
+    func fillMap() -> Void {
+        print("about to enter loop")
+        for d in self.deals{
+            print("in loooop")
+            //ADDING ALL THE ANNOTATIONS NOW
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: d.loc.latitude,longitude: d.loc.longitude)
+            annotation.title = d.dealName
+            mapView.addAnnotation(annotation)
+        }
+        print("out of loop")
+    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("viewForannotation")
+        if annotation is MKUserLocation {
+            //return nil
+            return nil
+        }
+        
+                let reuseId = "pin"
+                var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+                let span = MKCoordinateSpanMake(0.1, 0.1)
+                let region = MKCoordinateRegionMake(annotation.coordinate, span)
+                self.mapView.setRegion(region, animated: true)
+                print("in adding annotation, before pinview stuff")
+                if pinView == nil {
+                    print("Pinview was nil")
+                    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                    pinView!.canShowCallout = true
+                    pinView!.animatesDrop = true
+                    pinView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+                    pinView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure) as UIButton // button with info sign in it
+                }
+                print("after pinview stuff")
+        
+        
+        
+                return pinView
+        
+        
+    }
     //********************************************************************************************
     //Queries
     func getImages(){
@@ -189,7 +209,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 //self.dealsTable.reloadData()
                 //self.refreshControl.endRefreshing()
                 print("Retrieved Images")
-                
             } else {
                 // handle error
                 print("error")
@@ -212,6 +231,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 self.dealsTable.reloadData()
                 //self.refreshControl.endRefreshing()
                 print("Retrieved Deals")
+                self.fillMap()
+
             } else {
                 // handle error
                 print("error")
@@ -244,11 +265,11 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         mapView.addAnnotation(annotation)
         
     }
-
+    //********************************************************************************************
+    //Table View stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return deals.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dealsTable.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath) as! DealCell
         let deal = deals[indexPath.row]
@@ -278,6 +299,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         return cell
     }
     
+    //********************************************************************************************
+    //Other
     func buttontapped(_ sender: UIButton){
         self.performSegue(withIdentifier: "EditDeal", sender: sender)
     }
@@ -337,51 +360,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         })
         
     }
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("viewForannotation")
-        if annotation is MKUserLocation {
-            //return nil
-            return nil
-        }
-        
-        let reuseId = "pin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        
-        let span = MKCoordinateSpanMake(0.1, 0.1)
-        let region = MKCoordinateRegionMake(annotation.coordinate, span)
-        self.mapView.setRegion(region, animated: true)
-        
-        if pinView == nil {
-            print("Pinview was nil")
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.animatesDrop = true
-            pinView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
-            pinView!.rightCalloutAccessoryView = UIButton(type: UIButtonType.detailDisclosure) as UIButton // button with info sign in it
-        }
-        
-        
-        
-        
-        return pinView
-        
-        
-//        let reuseID = "myAnnotationView"
-//
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
-//        if (annotationView == nil) {
-//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-//            annotationView!.canShowCallout = true
-//            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
-//        }
-//
-//        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
-//        imageView.image = imageTaken
-//
-//        return annotationView
-    }
-
-    
     
 
     
@@ -442,12 +420,45 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     
+    //********************************************************************************************
+    //Old code commented for later use
+    //    @IBAction func enablePin(_ sender: Any) {
+    //        if(pinEnabled == true){
+    //            nyanImage.isHidden = false;
+    //            pinEnabled = false;
+    //            addDealButton.isHidden = false;
+    //            addDealButton.isEnabled = true;
+    //        }
+    //        else{
+    //            nyanImage.isHidden = true;
+    //            pinEnabled = true;
+    //            addDealButton.isHidden = true;
+    //            addDealButton.isEnabled = false;
+    //        }
+    //
+    //    }
+   
+    //        let reuseID = "myAnnotationView"
+    //
+    //        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+    //        if (annotationView == nil) {
+    //            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+    //            annotationView!.canShowCallout = true
+    //            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+    //        }
+    //
+    //        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
+    //        imageView.image = imageTaken
+    //
+    //        return annotationView
+
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
 }
 
