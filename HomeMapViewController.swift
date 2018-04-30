@@ -137,8 +137,11 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
         mapView.setRegion(sfRegion, animated: true)
         
-        
-        
+        //UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        dealsTable.insertSubview(refreshControl, at: 0)
+
         //set up camera
         vc = UIImagePickerController()
         vc.delegate = self
@@ -158,6 +161,19 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         //dealsTable.delegate = self
         getDeals()
 
+    }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        DispatchQueue.main.async {
+            self.getDeals()
+            self.self.dealsTable.reloadData()
+            self.self.dealsTable.reloadInputViews()
+        }
+            // Tell the refreshControl to stop spinning
+            refreshControl.endRefreshing()
     }
     
     func getDeals()
