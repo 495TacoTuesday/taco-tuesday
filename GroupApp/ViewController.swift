@@ -28,7 +28,6 @@ class ViewController: UIViewController {
             self.performSegue(withIdentifier: "loggedIn", sender: nil)
         }
 
-        
         let tryAgainAction = UIAlertAction(title: "ok", style: .default) { (action) in
            
         }

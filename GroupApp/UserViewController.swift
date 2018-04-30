@@ -13,7 +13,6 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var addDealButton: UIButton!
-    @IBOutlet weak var removeDealButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var deleteAccountButton: UIButton!
     
@@ -37,6 +36,7 @@ class UserViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler: { action in
             PFUser.logOutInBackground()
             print("Successful Logout")
+            self.performSegue(withIdentifier: "return", sender: self)
         }))
         alertController.addAction(UIAlertAction(title: "No", style: .cancel,handler: { action in
             print("Logout cancelled")
@@ -55,6 +55,7 @@ class UserViewController: UIViewController {
             //2 step authentication? re-enter password
             //
             print("Successfully Deleted User Account")
+            self.performSegue(withIdentifier: "return", sender: self)
         }))
         alertController.addAction(UIAlertAction(title: "No", style: .cancel,handler: { action in
             print("Delete Account cancelled")

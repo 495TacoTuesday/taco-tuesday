@@ -102,14 +102,6 @@
                                     <segue destination="B5T-39-0Q9" kind="presentation" id="8hj-Av-oUB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6m-Mh-DsS">
-                                <rect key="frame" x="93" y="258" width="229" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Remove a Deal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSJ-4G-RRX">
                                 <rect key="frame" x="155" y="613" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,8 +136,8 @@
                         <outlet property="addDealButton" destination="t1h-ij-1U9" id="pwO-UW-DSz"/>
                         <outlet property="deleteAccountButton" destination="OSJ-4G-RRX" id="lDX-cm-NWV"/>
                         <outlet property="greetingLabel" destination="RG1-XT-MLT" id="N4N-dW-5Je"/>
-                        <outlet property="removeDealButton" destination="B6m-Mh-DsS" id="AEC-3k-ALn"/>
                         <outlet property="signOutButton" destination="Qob-Op-Siq" id="j8n-X5-uAY"/>
+                        <segue destination="03B-sq-BHx" kind="show" identifier="return" id="C2W-TC-fpE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7P-YO-ElX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,4 +496,7 @@
         <image name="camera" width="64" height="64"/>
         <image name="nyan" width="1146" height="696"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C2W-TC-fpE"/>
+    </inferredMetricsTieBreakers>
 </document>
