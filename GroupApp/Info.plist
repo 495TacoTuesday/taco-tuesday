@@ -6,37 +6,37 @@
 	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want to send your location data to the NSA, please allow access to location services. </string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We want to send your location data to the NSA, please allow access to location services. </string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Need library access to upload images</string>
 	<key>CFBundlePackageType</key>
@@ -44,7 +44,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera access to take pictures</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>en_US</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -52,7 +52,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
 </dict>
 </plist>

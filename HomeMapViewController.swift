@@ -30,9 +30,9 @@ import CoreLocation
 
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
     
-    //@IBOutlet weak var nyanImage: UIImageView!
-    @IBOutlet weak var dealsTable: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
+    
+    //********************************************************************************************
+    //Variables
     let manager = CLLocationManager()
     //@IBOutlet weak var addDealButton: UIButton!
     var annoLoca : CLLocationCoordinate2D!
@@ -43,11 +43,16 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var images: [Image] = []
     //https://stackoverflow.com/questions/33927405/find-closest-longitude-and-latitude-in-array-from-user-location-ios-swift
     
-    @IBAction func searchButton(_ sender: Any) {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.delegate = self
-        present(searchController, animated: true, completion: nil)
-    }
+    //********************************************************************************************
+    //Outlets
+    @IBOutlet weak var dealsTable: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
+    //@IBOutlet weak var nyanImage: UIImageView!
+
+    
+    
+    
+   
     
 //    @IBAction func enablePin(_ sender: Any) {
 //        if(pinEnabled == true){
@@ -64,60 +69,11 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
 //        }
 //
 //    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //Ignoring user unteraction except typing
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        //Activity indicator
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
-        self.view.addSubview(activityIndicator)
-        
-        //Hide search bar
-        searchBar.resignFirstResponder()
-        dismiss(animated: true, completion: nil)
-        
-        //Create search request
-        let searchRequest = MKLocalSearchRequest()
-        searchRequest.naturalLanguageQuery = searchBar.text
-        
-        let activeSearch = MKLocalSearch(request: searchRequest)
-        activeSearch.start { (response, error) in
-            activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            if response == nil{
-                print("error")
-                //TO DO: ADD AN ALERT TO SAY THAT COULD NOT FIND LOCATION
-            }
-            else{
-                //Getting data
-                let latitude = response?.boundingRegion.center.latitude
-                let longitude = response?.boundingRegion.center.longitude
-                
-                let annotation = MKPointAnnotation()
-                annotation.title = searchBar.text
-                annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                self.annoLoca = annotation.coordinate
-                //Zoom back in
-                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
-                let span = MKCoordinateSpanMake(0.1, 0.1)
-                let region = MKCoordinateRegionMake(coordinate, span)
-                self.mapView.setRegion(region, animated: true)
-                
-                self.mapView.addAnnotation(annotation)
-                
-                
-            }
-        }
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {
         getDeals()
         getImages()
-        debugPrint(deals)
         
     }
     var currentUser = ""
@@ -156,7 +112,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
                 self.mapView.setRegion(sfRegion, animated: true)
             }
         })
-        manager.stopUpdatingLocation()
 
         
         //UIRefreshControl
@@ -184,6 +139,30 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         //getDeals()
 
     }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0]
+        
+        let userRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude), MKCoordinateSpanMake(0.1, 0.1))
+        mapView.setRegion(userRegion, animated: true)
+        mapView.showsUserLocation = true
+
+        
+        let postQuery = PFQuery(className: "Deal")
+        postQuery.whereKey("loc", nearGeoPoint: PFGeoPoint(latitude: (userLocation.coordinate.latitude),longitude: (userLocation.coordinate.longitude)), withinMiles: 3)
+        postQuery.findObjectsInBackground(block: { (objects, error) -> Void in
+            if(objects != nil){
+                print("got local stuff:")
+                print(objects!)
+                print("end of local")
+            }
+            else if((error) != nil)
+            {
+                print("errror finding local")
+                print(error!)
+            }
+            
+        })
+    }
     
     // Makes a network request to get updated data
     // Updates the tableView with the new data
@@ -195,6 +174,9 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
     }
+    
+    //********************************************************************************************
+    //Queries
     func getImages(){
         let query = Image.query()
         //query?.order(byDescending: "_created_at")
@@ -215,7 +197,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             }
         })
     }
-    
+
     func getDeals(){
         let query = Deal.query()
         //    query?.limit = 20
@@ -401,13 +383,64 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
 
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation = locations[0]
-        
-        let userRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude), MKCoordinateSpanMake(0.1, 0.1))
-        mapView.setRegion(userRegion, animated: true)
-        //self.mapView.showsUserLocation = true
+
+    
+    //********************************************************************************************
+    //Search Map
+    @IBAction func searchButton(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        present(searchController, animated: true, completion: nil)
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //Ignoring user unteraction except typing
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        //Activity indicator
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
+        
+        //Hide search bar
+        searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+        
+        //Create search request
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = searchBar.text
+        
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        activeSearch.start { (response, error) in
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            if response == nil{
+                print("error")
+                //TO DO: ADD AN ALERT TO SAY THAT COULD NOT FIND LOCATION
+            }
+            else{
+                //Getting data
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+                
+                let annotation = MKPointAnnotation()
+                annotation.title = searchBar.text
+                annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+                self.annoLoca = annotation.coordinate
+                //Zoom back in
+                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpanMake(0.1, 0.1)
+                let region = MKCoordinateRegionMake(coordinate, span)
+                self.mapView.setRegion(region, animated: true)
+                
+                self.mapView.addAnnotation(annotation)
+                
+                
+            }
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
