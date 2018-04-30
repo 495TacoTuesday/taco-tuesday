@@ -78,7 +78,6 @@
                                                     <state key="normal" title="Button"/>
                                                     <connections>
                                                         <action selector="onTapEdit:" destination="ZnI-FQ-bdQ" eventType="touchUpInside" id="Xbl-7P-2d9"/>
-                                                        <segue destination="1Nk-Z1-TAp" kind="show" identifier="EditDeal" id="FoG-oZ-IYH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -133,6 +132,7 @@
                         <outlet property="dealsTable" destination="DCU-NY-mjq" id="Vec-GT-9yy"/>
                         <outlet property="mapView" destination="Oee-sL-mMo" id="r14-AF-isa"/>
                         <segue destination="IkK-wu-ujF" kind="show" identifier="tagSegue" id="T68-VA-SP6"/>
+                        <segue destination="1Nk-Z1-TAp" kind="show" identifier="EditDeal" id="5Rd-pd-rcB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="374-lz-IHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="983" y="795"/>
         </scene>
-        <!--Edit Deal View Controller-->
+        <!--Edit Deal-->
         <scene sceneID="Dj4-wD-QaX">
             <objects>
-                <viewController id="1Nk-Z1-TAp" customClass="EditDealViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit Deal" id="1Nk-Z1-TAp" customClass="EditDealViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t4D-5c-2q2"/>
                         <viewControllerLayoutGuide type="bottom" id="7u6-Xl-csp"/>
@@ -274,21 +274,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rhA-Ql-tgd">
-                                <rect key="frame" x="59" y="133" width="97" height="30"/>
+                                <rect key="frame" x="130" y="150" width="264" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgY-A8-P6P">
-                                <rect key="frame" x="59" y="253" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXl-tW-Aay">
-                                <rect key="frame" x="59" y="353" width="97" height="30"/>
+                                <rect key="frame" x="130" y="243" width="264" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -312,18 +305,48 @@
                                     <action selector="deleteDeal:" destination="1Nk-Z1-TAp" eventType="touchUpInside" id="kPU-ns-j5e"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deal Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciY-el-C00">
+                                <rect key="frame" x="20" y="154" width="93" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5u-6I-f4Z">
+                                <rect key="frame" x="20" y="252" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boT-59-hq7">
+                                <rect key="frame" x="20" y="358" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXl-tW-Aay">
+                                <rect key="frame" x="130" y="353" width="264" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="businessName" destination="oXl-tW-Aay" id="kHb-qH-nSp"/>
                         <outlet property="dealName" destination="rhA-Ql-tgd" id="Rnu-Pw-F0I"/>
                         <outlet property="deleteButton" destination="f56-8w-Lz5" id="T6H-M5-Sdf"/>
+                        <outlet property="desc" destination="rgY-A8-P6P" id="0yt-Cv-cmR"/>
                         <outlet property="saveButton" destination="NMn-mk-2ep" id="9Bv-4g-UiM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8z-Is-0Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657" y="1061"/>
+            <point key="canvasLocation" x="1656.521739130435" y="1059.7826086956522"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="WkL-Iz-bAP">
