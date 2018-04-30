@@ -6,6 +6,8 @@
 //  Copyright © 2018 Joe Antongiovanni. All rights reserved.
 //
 
+//take coordinates from 4square and put them in the lat long fields
+
 import UIKit
 
 class AddDealViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -104,7 +106,7 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
         
         
         let tryAgainAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-            
+             self.performSegue(withIdentifier: "returnHome", sender: self)
         }
         alertController.addAction(tryAgainAction)
         
@@ -191,7 +193,7 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
                 //                }
             }
         }
-        
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
