@@ -41,6 +41,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var vc: UIImagePickerController!
     var imageTaken: UIImage!
     var deals: [Deal] = []
+    var images: [Image] = []
     //https://stackoverflow.com/questions/33927405/find-closest-longitude-and-latitude-in-array-from-user-location-ios-swift
     
     @IBAction func searchButton(_ sender: Any) {
@@ -115,6 +116,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     override func viewWillAppear(_ animated: Bool) {
         getDeals()
+        getImages()
+        debugPrint(deals)
         
     }
     var currentUser = ""
@@ -159,7 +162,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         dealsTable.dataSource = self
         //dealsTable.delegate = self
-        getDeals()
+        //getDeals()
 
     }
     
@@ -169,15 +172,32 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         DispatchQueue.main.async {
             self.getDeals()
-            self.self.dealsTable.reloadData()
-            self.self.dealsTable.reloadInputViews()
         }
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
     }
+    func getImages(){
+        let query = Image.query()
+        //query?.order(byDescending: "_created_at")
+        query?.findObjectsInBackground(block: { (images, error) in
+            if  images != nil {
+                // do something with the data fetched
+                self.images = images as! [Image]
+                //print(deals!)
+                //reloads the table view once we have the data
+                //self.dealsTable.reloadData()
+                //self.refreshControl.endRefreshing()
+                print("Retrieved Images")
+                
+            } else {
+                // handle error
+                print("error")
+                print(error?.localizedDescription as Any)
+            }
+        })
+    }
     
-    func getDeals()
-    {
+    func getDeals(){
         let query = Deal.query()
         //    query?.limit = 20
         query?.order(byDescending: "_created_at")
@@ -235,6 +255,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let descLabel = deal.desc
         let BusName = deal.businessName
         let auth = deal.author.objectId
+        //let id = deal._
         if(auth == self.currentUser){
             print("true")
             DispatchQueue.main.async {
