@@ -35,7 +35,7 @@ class UserViewController: UIViewController {
         let alertController = UIAlertController(title: "Logout", message:
             "Are you sure you want to logout of your account?", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler: { action in
-            PFUser.logOut()
+            PFUser.logOutInBackground()
             print("Successful Logout")
         }))
         alertController.addAction(UIAlertAction(title: "No", style: .cancel,handler: { action in

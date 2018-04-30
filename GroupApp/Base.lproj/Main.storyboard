@@ -22,10 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Oee-sL-mMo">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Oee-sL-mMo">
                                 <rect key="frame" x="0.0" y="64" width="414" height="503"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxG-Ie-mdz">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxG-Ie-mdz">
                                 <rect key="frame" x="148" y="503" width="118" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="118" id="Bm3-6h-1H9"/>
@@ -108,12 +109,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Oee-sL-mMo" firstAttribute="leading" secondItem="qfQ-7a-DLy" secondAttribute="leading" id="X3r-u5-uHe"/>
                             <constraint firstItem="xkI-Mr-Woq" firstAttribute="top" secondItem="uxG-Ie-mdz" secondAttribute="bottom" constant="169" id="eeg-s4-Goa"/>
-                            <constraint firstItem="Oee-sL-mMo" firstAttribute="centerX" secondItem="uxG-Ie-mdz" secondAttribute="centerX" id="i0a-Hi-vtA"/>
-                            <constraint firstAttribute="trailing" secondItem="Oee-sL-mMo" secondAttribute="trailing" id="jKF-bL-lgu"/>
-                            <constraint firstItem="Oee-sL-mMo" firstAttribute="top" secondItem="M07-2X-vT5" secondAttribute="bottom" id="tOt-QW-9pX"/>
-                            <constraint firstItem="Oee-sL-mMo" firstAttribute="bottom" secondItem="uxG-Ie-mdz" secondAttribute="bottom" id="tyM-oa-0uq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Deals" id="Saq-No-f4t">

@@ -130,8 +130,8 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         manager.stopUpdatingLocation()
-        print(PFUser.current()?.objectId)
-        currentUser = (PFUser.current()?.objectId)!
+        print(PFUser.current()?.objectId ?? "")
+        currentUser = (PFUser.current()?.objectId ?? "")!
 
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
