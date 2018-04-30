@@ -10,7 +10,13 @@
 
 import UIKit
 
-class AddDealViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddDealViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate,LocationsViewControllerDelegate {
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber) {
+        latField.text = String(latitude.doubleValue)
+        lonField.text = String(longitude.doubleValue)
+        self.navigationController?.popToViewController(self, animated: true)
+    }
+    
     var vc: UIImagePickerController!
     var pics: [UIImage] = []
     var dealID : String?
@@ -114,7 +120,6 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
         // add the OK action to the alert controller
         // Do any additional setup after loa
         Deal.postUserDeal(dealName : dealName,buisnessName: businessName,description : description,latt : 37.783333 ,long :  -122.416667) { (success : Bool, error : Error?) in
-            
             if success {
                 print("it worked")
                 
@@ -200,7 +205,7 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
         if(segue.identifier == "findAddress"){
             let destVC = segue.destination as! LocationsViewController
             //destVC.imageTaken = self.imageTaken
-            //destVC.delegate = self
+            destVC.delegate = self
             
         }
     }
@@ -208,8 +213,6 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
     }
     

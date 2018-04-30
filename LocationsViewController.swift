@@ -9,7 +9,7 @@
 import UIKit
 // Protocol definition - top of LocationsViewController.swift
 protocol LocationsViewControllerDelegate : class {
-    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage)
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber)
 }
 class LocationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     weak var delegate : LocationsViewControllerDelegate!
@@ -58,7 +58,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         let lngString = "\(lng)"
         
         print(latString + " " + lngString)
-        delegate.locationsPickedLocation(controller: self, latitude: lat, longitude: lng, photo: imageTaken)
+        delegate.locationsPickedLocation(controller: self, latitude: lat, longitude: lng)
         
     }
     
