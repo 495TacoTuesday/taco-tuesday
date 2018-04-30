@@ -302,11 +302,22 @@
                                     <action selector="saveDeal:" destination="1Nk-Z1-TAp" eventType="touchUpInside" id="3Yq-ok-cpW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f56-8w-Lz5">
+                                <rect key="frame" x="185" y="618" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteDeal:" destination="1Nk-Z1-TAp" eventType="touchUpInside" id="kPU-ns-j5e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="dealName" destination="rhA-Ql-tgd" id="Rnu-Pw-F0I"/>
+                        <outlet property="deleteButton" destination="f56-8w-Lz5" id="T6H-M5-Sdf"/>
                         <outlet property="saveButton" destination="NMn-mk-2ep" id="9Bv-4g-UiM"/>
                     </connections>
                 </viewController>

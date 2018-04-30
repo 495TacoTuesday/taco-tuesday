@@ -13,6 +13,7 @@ class EditDealViewController: UIViewController {
 
     @IBOutlet weak var dealName: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     
     var deal : PFObject!
@@ -39,6 +40,12 @@ class EditDealViewController: UIViewController {
         deal["dealName"] = dealName.text
         deal.saveInBackground()
     }
+    
+    @IBAction func deleteDeal(_ sender: Any) {
+        deal.deleteInBackground()
+    }
+    
+    
     
     /*
     // MARK: - Navigation
