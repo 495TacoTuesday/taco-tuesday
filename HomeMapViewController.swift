@@ -18,7 +18,7 @@ import CoreLocation
 
 
 
-class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
+class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
     
     
     //********************************************************************************************
@@ -71,24 +71,25 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         mapView.showsUserLocation = true
 
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
-    
+        let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
+        self.mapView.setRegion(currentRegion, animated: true)
         
-        PFGeoPoint.geoPointForCurrentLocation(inBackground: {(geopoint,error) in
-            if(geopoint != nil)
-            {
-                print("going to current location")
-                //SENDS ME TO RANDOM POINT IN OCEAN IDK WHY
-                //let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake((geopoint?.latitude)!,(geopoint?.longitude)!),MKCoordinateSpanMake(0.1, 0.1))
-                let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
-                self.mapView.setRegion(currentRegion, animated: true)
-            }
-            else{
-                print("didnt find current location")
-                let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
-                self.mapView.setRegion(sfRegion, animated: true)
-            }
-        })
-        
+//        PFGeoPoint.geoPointForCurrentLocation(inBackground: {(geopoint,error) in
+//            if(geopoint != nil)
+//            {
+//                print("going to current location")
+//                //SENDS ME TO RANDOM POINT IN OCEAN IDK WHY
+//                //let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake((geopoint?.latitude)!,(geopoint?.longitude)!),MKCoordinateSpanMake(0.1, 0.1))
+//                let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
+//                self.mapView.setRegion(currentRegion, animated: true)
+//            }
+//            else{
+//                print("didnt find current location")
+//                let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
+//                self.mapView.setRegion(sfRegion, animated: true)
+//            }
+//        })
+//
         
         
 
@@ -246,30 +247,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         })
     }
     
-    
-    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber , longitude: NSNumber, photo: UIImage) {
-        let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
-        
-        self.navigationController?.popToViewController(self, animated: true)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationCoordinate
-        annotation.title = "\(latitude), \(longitude)"
-        annoLoca = annotation.coordinate
-        
-        Deal.postUserDeal(dealName: "Test Name",buisnessName: "Test Taco Place", description: "Test Description" ,latt: latitude.doubleValue,long: longitude.doubleValue) {
-            (success, error) in
-            if success{
-                print("Deal posted")
-            }
-            else{
-                print(error?.localizedDescription as Any)
-            }
-        }
-        
-        
-        mapView.addAnnotation(annotation)
-        
-    }
+
     //********************************************************************************************
     //Table View stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -311,12 +289,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "tagSegue"){
-            let destVC = segue.destination as! LocationsViewController
-            destVC.imageTaken = self.imageTaken
-            destVC.delegate = self
-        }
-        
         if(segue.identifier == "dealID") {
             
             let cell = sender as! UITableViewCell
@@ -345,26 +317,6 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
-    
-    @IBAction func tappedCamera(_ sender: Any) {
-        self.present(vc, animated: false, completion: nil)
-    }
-    
-    @objc func imagePickerController(_ picker: UIImagePickerController,
-                                     didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Get the image captured by the UIImagePickerController
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        imageTaken = originalImage
-        // Do something with the images (based on your use case)
-        
-        // Dismiss UIImagePickerController to go back to your original view controller
-        print("Got Image")
-        dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "tagSegue", sender: nil)
-        })
-        
-    }
     
 
     
