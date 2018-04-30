@@ -21,6 +21,7 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         greetingLabel.text = "Hello " + (PFUser.current()?.username)!
+        print(PFUser.current()?.objectId)
 
         // Do any additional setup after loading the view.
     }
