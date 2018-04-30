@@ -30,7 +30,6 @@ import CoreLocation
 
 class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,LocationsViewControllerDelegate,MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UISearchBarDelegate{
     
-    
     //@IBOutlet weak var nyanImage: UIImageView!
     @IBOutlet weak var dealsTable: UITableView!
     @IBOutlet weak var mapView: MKMapView!
@@ -131,15 +130,34 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
 //        nyanImage.isHidden = true;
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
         manager.requestWhenInUseAuthorization()
+        
         manager.startUpdatingLocation()
-        manager.stopUpdatingLocation()
         print(PFUser.current()?.objectId ?? "")
         currentUser = (PFUser.current()?.objectId ?? "")!
+        mapView.showsUserLocation = true
 
         //one degree of latitude is approximately 111 kilometers (69 miles) at all times.
-        let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
-        mapView.setRegion(sfRegion, animated: true)
+    
+        
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: {(geopoint,error) in
+            if(geopoint != nil)
+            {
+                print("going to current location")
+                //SENDS ME TO RANDOM POINT IN OCEAN IDK WHY
+                //let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake((geopoint?.latitude)!,(geopoint?.longitude)!),MKCoordinateSpanMake(0.1, 0.1))
+                let currentRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
+                self.mapView.setRegion(currentRegion, animated: true)
+            }
+            else{
+                print("didnt find current location")
+                let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),MKCoordinateSpanMake(0.1, 0.1))
+                self.mapView.setRegion(sfRegion, animated: true)
+            }
+        })
+        manager.stopUpdatingLocation()
+
         
         //UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -221,7 +239,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     
-    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, photo: UIImage) {
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber , longitude: NSNumber, photo: UIImage) {
         let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
         
         self.navigationController?.popToViewController(self, animated: true)
@@ -230,7 +248,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         annotation.title = "\(latitude), \(longitude)"
         annoLoca = annotation.coordinate
         
-        Deal.postUserDeal(dealName: "Test Name",buisnessName: "Test Taco Place", description: "Test Description" ,latt: latitude,long: longitude) {
+        Deal.postUserDeal(dealName: "Test Name",buisnessName: "Test Taco Place", description: "Test Description" ,latt: latitude.doubleValue,long: longitude.doubleValue) {
             (success, error) in
             if success{
                 print("Deal posted")

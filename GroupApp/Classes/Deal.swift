@@ -15,8 +15,8 @@ class Deal: PFObject, PFSubclassing {
     @NSManaged var desc: String
     @NSManaged var businessName: String
     @NSManaged var dealName: String
-    @NSManaged var lat: NSNumber
-    @NSManaged var lon: NSNumber
+    @NSManaged var loc: PFGeoPoint
+
     
     /* Needed to implement PFSubclassing interface */
     class func parseClassName() -> String {
@@ -34,7 +34,7 @@ class Deal: PFObject, PFSubclassing {
      - parameter caption: Caption text input by the user
      - parameter completion: Block to be executed after save operation is complete
      */
-    class func postUserDeal(dealName: String, buisnessName : String, description: String?, latt : NSNumber, long : NSNumber,  withCompletion completion: PFBooleanResultBlock?) {
+    class func postUserDeal(dealName: String, buisnessName : String, description: String?, latt : Double, long : Double,  withCompletion completion: PFBooleanResultBlock?) {
         // use subclass approach
         let deal = Deal()
         
@@ -42,8 +42,7 @@ class Deal: PFObject, PFSubclassing {
        // post.media = getPFFileFromImage(image: image)! // PFFile column type
         deal.author = PFUser.current()! // Pointer column type that points to PFUser
         deal.desc = description!
-        deal.lat = latt
-        deal.lon = long
+        deal.loc = PFGeoPoint(latitude: latt, longitude: long)
         deal.businessName = buisnessName
         deal.dealName = dealName
         
