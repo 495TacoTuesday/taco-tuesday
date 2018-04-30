@@ -90,6 +90,7 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             UIApplication.shared.endIgnoringInteractionEvents()
             if response == nil{
                 print("error")
+                //TO DO: ADD AN ALERT TO SAY THAT COULD NOT FIND LOCATION
             }
             else{
                 //Getting data
