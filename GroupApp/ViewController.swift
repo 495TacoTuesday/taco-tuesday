@@ -22,7 +22,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var currentUser = ""
+        currentUser = (PFUser.current()?.objectId ?? "")!
+        if(currentUser != ""){
+            self.performSegue(withIdentifier: "loggedIn", sender: nil)
+        }
+
         
         let tryAgainAction = UIAlertAction(title: "ok", style: .default) { (action) in
            
