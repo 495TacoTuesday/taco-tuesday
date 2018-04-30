@@ -113,7 +113,7 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
         
         // add the OK action to the alert controller
         // Do any additional setup after loa
-        Deal.postUserDeal(dealName : dealName,buisnessName: businessName,description : description,latt : 100.0 ,long : 100.0) { (success : Bool, error : Error?) in
+        Deal.postUserDeal(dealName : dealName,buisnessName: businessName,description : description,latt : 37.783333 ,long :  -122.416667) { (success : Bool, error : Error?) in
             
             if success {
                 print("it worked")

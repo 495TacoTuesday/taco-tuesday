@@ -118,6 +118,10 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         //getDeals()
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //fillMap()
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
         
@@ -154,16 +158,17 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
             refreshControl.endRefreshing()
     }
     func fillMap() -> Void {
-        print("about to enter loop")
+        //print("about to enter loop")
         for d in self.deals{
-            print("in loooop")
+            //print("in loooop")
             //ADDING ALL THE ANNOTATIONS NOW
+
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: d.loc.latitude,longitude: d.loc.longitude)
             annotation.title = d.dealName
             mapView.addAnnotation(annotation)
         }
-        print("out of loop")
+        //print("out of loop")
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         print("viewForannotation")
