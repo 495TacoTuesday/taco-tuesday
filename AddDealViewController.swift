@@ -14,6 +14,8 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber) {
         latField.text = String(latitude.doubleValue)
         lonField.text = String(longitude.doubleValue)
+        print("got in")
+        checkEmptyMain()
         self.navigationController?.popToViewController(self, animated: true)
     }
     
@@ -24,6 +26,7 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
     @IBOutlet weak var dealNameTextField: UITextField!
     @IBOutlet weak var latField: UITextField!
     @IBOutlet weak var lonField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var businessNameTextField: UITextField!
     @IBOutlet weak var picView1: UIImageView!
@@ -31,9 +34,22 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
     @IBOutlet weak var picView3: UIImageView!
     
     @IBOutlet weak var descriptionTextField: UITextField!
+    @IBAction func checkEmpty(_ sender: Any) {
+       checkEmptyMain()
+    }
+    func checkEmptyMain() -> Void {
+        if(latField.text != "" && latField.text != nil && lonField.text != "" && lonField.text != nil){
+            addButton.isEnabled = true
+            addButton.backgroundColor = UIColor.blue
+        }
+        else{
+            addButton.isEnabled = false
+            addButton.backgroundColor = UIColor.lightGray
+        }
+    }
     
     @IBAction func enterAddress(_ sender: Any) {
-        self.performSegue(withIdentifier: "tagSegue", sender: nil)
+        self.performSegue(withIdentifier: "findAddress", sender: nil)
     }
     
     @IBAction func didTapClose(_ sender: Any) {
@@ -104,9 +120,9 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
         
         let description = descriptionTextField.text ?? ""
         
-        let lattitude = latField.text ?? ""
+        let lattitude = NumberFormatter().number(from: latField.text!)?.doubleValue
         
-        let longitude = lonField.text ?? ""
+        let longitude = NumberFormatter().number(from: lonField.text!)?.doubleValue
         
         let alertController = UIAlertController(title: "Sucess", message: "Deal added successfully", preferredStyle: .alert)
         
@@ -119,7 +135,7 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
         
         // add the OK action to the alert controller
         // Do any additional setup after loa
-        Deal.postUserDeal(dealName : dealName,buisnessName: businessName,description : description,latt : 37.783333 ,long :  -122.416667) { (success : Bool, error : Error?) in
+        Deal.postUserDeal(dealName : dealName,buisnessName: businessName,description : description,latt : lattitude! ,long :  longitude!, withCompletion: { (success : Bool, error : Error?) in
             if success {
                 print("it worked")
                 
@@ -160,11 +176,15 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
                                 
                             })
                         }
+                        self.present(alertController, animated: true) {
+                            //WE WANT TO BE TAKEN TO THE HOME SCREEN AND THE LOCATION WHERE THE DEAL WAS ADDED AFTER WE ADD ONE
+                        }
                     } else {
                         // handle error
                         print("error")
                         print(error?.localizedDescription as Any)
                     }
+                    
                 })
 //                if(self.dealID != nil && self.dealID != "")
 //                {
@@ -190,14 +210,12 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
                 
                 
                 
-                self.present(alertController, animated: true) {
-                    //WE WANT TO BE TAKEN TO THE HOME SCREEN AND THE LOCATION WHERE THE DEAL WAS ADDED AFTER WE ADD ONE
-                }
+                
                 //                self.present(self.alertController, animated: true) {
                 //
                 //                }
             }
-        }
+        })
        
     }
     
@@ -213,6 +231,8 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addButton.isEnabled = false
+        addButton.backgroundColor = UIColor.lightGray
         
     }
     
