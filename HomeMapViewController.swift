@@ -264,25 +264,26 @@ class HomeMapViewController: UIViewController,UIImagePickerControllerDelegate,UI
         print(id)
 //uncomment to display images
 // currently images too big, displaying in wrong cell if scroll too fast
-//        for img in images{
-//            //print(img.deal_id)
-//            if(img.deal_id == id){
-//                print("got match")
-//                if let imageFile : PFFile = img.image {
-//                    imageFile.getDataInBackground(block: {(data, error) in
-//                        if error == nil {
-//                            DispatchQueue.main.async {
-//                                let image = UIImage(data: data!)
-//                                cell.imageView?.image = image
-//                            }
-//                        } else{
-//                            print(error!.localizedDescription)
-//                        }
-//                    })
-//                }
-//            }
-//
-//        }
+        for img in images{
+            //print(img.deal_id)
+            if(img.deal_id == id){
+                print("got match")
+                if let imageFile : PFFile = img.image {
+                    imageFile.getDataInBackground(block: {(data, error) in
+                        if error == nil {
+                            DispatchQueue.main.async {
+                                let image = UIImage(data: data!)
+                                cell.dealImage.image = image
+
+                            }
+                        } else{
+                            print(error!.localizedDescription)
+                        }
+                    })
+                }
+            }
+
+        }
         
         
         if(auth == self.currentUser){
