@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Deals-->
+        <!--Deals Near Me-->
         <scene sceneID="kMc-rn-r78">
             <objects>
                 <viewController id="cLh-Qs-wm2" customClass="HomeMapViewController" customModule="GroupApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,7 +121,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Deals" id="Saq-No-f4t">
+                    <navigationItem key="navigationItem" title="Deals Near Me" id="Saq-No-f4t">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="yc6-hh-prA">
                             <connections>
                                 <action selector="searchButton:" destination="cLh-Qs-wm2" id="X0q-A8-37A"/>
