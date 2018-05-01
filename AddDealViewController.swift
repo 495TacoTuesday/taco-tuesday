@@ -22,7 +22,6 @@ class AddDealViewController: UIViewController , UIImagePickerControllerDelegate,
     var vc: UIImagePickerController!
     var pics: [UIImage] = []
     var dealID : String?
-    @IBOutlet weak var addressView: UITextView!
     @IBOutlet weak var dealNameTextField: UITextField!
     @IBOutlet weak var latField: UITextField!
     @IBOutlet weak var lonField: UITextField!

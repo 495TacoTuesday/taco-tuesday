@@ -9,6 +9,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HiraginoKakuGothic.ttc">
+            <string>HiraginoSans-W3</string>
+            <string>HiraginoSans-W6</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Authenticate to Add Deal-->
         <scene sceneID="eMc-Cc-S0l">
@@ -22,8 +28,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z99-44-dcw">
-                                <rect key="frame" x="147" y="377" width="121" height="47"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z99-44-dcw">
+                                <rect key="frame" x="180" y="367" width="55" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <state key="normal" title="Login"/>
@@ -54,7 +60,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpG-fk-ctl">
-                                <rect key="frame" x="147" y="441" width="121" height="48"/>
+                                <rect key="frame" x="147" y="441" width="121" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <state key="normal" title="Sign Up"/>
@@ -103,7 +109,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSJ-4G-RRX">
-                                <rect key="frame" x="0.0" y="706" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="694" width="414" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.062745098040000002" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,7 +128,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qob-Op-Siq">
-                                <rect key="frame" x="0.0" y="353" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="647" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3411477208" green="0.34119257330000002" blue="0.34113246200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Sign Out">
@@ -176,13 +182,6 @@
                                     <action selector="didTapClose:" destination="B5T-39-0Q9" eventType="touchUpInside" id="D9x-XX-e0m"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-0a-9JY">
-                                <rect key="frame" x="189" y="134" width="194" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DealName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3k-fu-Dsm">
                                 <rect key="frame" x="15" y="138" width="86" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,7 +197,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qm-hm-HYn">
-                                <rect key="frame" x="189" y="175" width="194" height="30"/>
+                                <rect key="frame" x="200" y="175" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
@@ -212,7 +211,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z9h-Kf-mQH">
-                                <rect key="frame" x="190" y="215" width="193" height="30"/>
+                                <rect key="frame" x="200" y="213" width="193" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
@@ -233,7 +232,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tb8-ez-AS7">
-                                <rect key="frame" x="189" y="259" width="194" height="30"/>
+                                <rect key="frame" x="200" y="257" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
@@ -243,7 +242,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jC7-lj-Upy">
-                                <rect key="frame" x="189" y="297" width="194" height="30"/>
+                                <rect key="frame" x="200" y="296" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
@@ -271,37 +270,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prf-eu-pPd">
-                                <rect key="frame" x="260" y="357" width="99" height="30"/>
+                                <rect key="frame" x="295" y="353" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select on Map">
                                     <color key="titleColor" red="0.00072657089910000002" green="0.3505060673" blue="0.60068440440000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="323 Sunset Avenue, Pacific Grove CA" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lbm-p6-ztT">
-                                <rect key="frame" x="71" y="395" width="232" height="49.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="478-bn-8lT">
-                                <rect key="frame" x="16" y="452" width="97" height="91"/>
+                                <rect key="frame" x="16" y="452" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="wRz-dr-WPz" appends="YES" id="dJV-Mz-iSw"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="clC-gi-ipX">
-                                <rect key="frame" x="121" y="448" width="136" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4uA-uX-0Ls" appends="YES" id="89C-fw-C93"/>
-                                </connections>
-                            </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="lKz-kc-toM">
-                                <rect key="frame" x="260" y="455" width="102" height="88"/>
+                                <rect key="frame" x="293" y="452" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -309,18 +293,32 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-fP-44n">
-                                <rect key="frame" x="136" y="64" width="103" height="32"/>
+                                <rect key="frame" x="156" y="66" width="103" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-0a-9JY">
+                                <rect key="frame" x="200" y="132" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="clC-gi-ipX">
+                                <rect key="frame" x="156" y="452" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4uA-uX-0Ls" appends="YES" id="89C-fw-C93"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="kUH-SB-b24" id="4Wq-8C-RE7"/>
-                        <outlet property="addressView" destination="Lbm-p6-ztT" id="7Z1-EC-f5V"/>
                         <outlet property="businessNameTextField" destination="0qm-hm-HYn" id="6no-sW-q22"/>
                         <outlet property="dealNameTextField" destination="hM0-0a-9JY" id="vwq-df-HEU"/>
                         <outlet property="descriptionTextField" destination="z9h-Kf-mQH" id="1PY-tg-vcB"/>
@@ -615,6 +613,6 @@
         <image name="nyan" width="1146" height="696"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C2W-TC-fpE"/>
+        <segue reference="r82-qC-OSx"/>
     </inferredMetricsTieBreakers>
 </document>
