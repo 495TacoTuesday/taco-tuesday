@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jsm-xE-UJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jsm-xE-UJ5">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -141,7 +141,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome" id="Mpo-Tr-cbE"/>
+                    <navigationItem key="navigationItem" title="Welcome" id="Mpo-Tr-cbE">
+                        <barButtonItem key="leftBarButtonItem" title="Home" style="plain" id="zNN-RD-PLb">
+                            <connections>
+                                <segue destination="03B-sq-BHx" kind="show" id="GR9-nY-h6Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addDealButton" destination="t1h-ij-1U9" id="pwO-UW-DSz"/>
                         <outlet property="deleteAccountButton" destination="OSJ-4G-RRX" id="lDX-cm-NWV"/>
@@ -388,7 +394,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y05-Nd-svo">
-                                                    <rect key="frame" x="20" y="0.0" width="83.666666666666671" height="20.666666666666668"/>
+                                                    <rect key="frame" x="15" y="0.0" width="83.666666666666671" height="20.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -401,13 +407,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sM0-9Z-zg0">
-                                                    <rect key="frame" x="77" y="34.666666666666664" width="317" height="20.333333333333336"/>
+                                                    <rect key="frame" x="72" y="34.666666666666664" width="327" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BusName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsT-AI-A5I">
-                                                    <rect key="frame" x="111.66666666666669" y="0.0" width="73.333333333333314" height="20.666666666666668"/>
+                                                    <rect key="frame" x="106.66666666666669" y="0.0" width="73.333333333333314" height="20.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -509,7 +515,7 @@
                                         <rect key="frame" x="0.0" y="66" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMS-NS-Z9m" id="PCV-3y-GPH">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="60.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="60.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-sB-btd">
@@ -520,13 +526,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thai Basil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE2-u0-eyu">
-                                                    <rect key="frame" x="48" y="18" width="312" height="17"/>
+                                                    <rect key="frame" x="48" y="18" width="317" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="101 S Murphy Ave" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLg-8q-mjz">
-                                                    <rect key="frame" x="48" y="37" width="320" height="15"/>
+                                                    <rect key="frame" x="48" y="37" width="325" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.43902853260000002" green="0.43902853260000002" blue="0.43902853260000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -592,6 +598,7 @@
         <!--Navigation Controller-->
         <scene sceneID="g1Z-sI-ced">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hMQ-10-wr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Gh-Rj-xdy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yac-yG-bvO">
@@ -603,7 +610,6 @@
                         <segue destination="ASG-Vo-y1E" kind="relationship" relationship="rootViewController" id="dLe-0E-ETP"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hMQ-10-wr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2402.898550724638" y="813.58695652173924"/>
         </scene>
@@ -613,6 +619,6 @@
         <image name="nyan" width="1146" height="696"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r82-qC-OSx"/>
+        <segue reference="GR9-nY-h6Z"/>
     </inferredMetricsTieBreakers>
 </document>
